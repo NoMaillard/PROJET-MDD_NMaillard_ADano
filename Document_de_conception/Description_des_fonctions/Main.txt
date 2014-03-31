@@ -1,0 +1,36 @@
+\textbullet Main.\textbf{main()}
+\textbullet Main.\textbf{init()}
+\textbullet Main.\textbf{run()}
+\textbullet Main.\textbf{show()}
+\textbullet Main.\textbf{interact()}
+\textbullet Main.\textbf{quit()}
+
+Main.\textbf{main()}->rien
+		Description : fonction principale du jeu
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{init()}->rien
+		Description : initialisation
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{run()}->rien
+		Description : boucle de simulation
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{show()}->rein
+		Description : affiche le jeu
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{interact()}->rien
+		Description : gere les action de l'utilisateur
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{quit()}->rien
+		Description : sauvegarde les scores et quitte le jeu
+		Parametres : aucun
+		Valeurs de retour : aucune
