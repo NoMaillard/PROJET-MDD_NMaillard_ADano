@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[top=3.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{ifpdf}
+\usepackage{asymptote}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{parallel}
+\usepackage{amsmath}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{wallpaper}
+\usepackage{listings}
+\lstset{
+	basicstyle = \footnotesize\ttfamily,
+	tabsize=4
+}
+\begin{document}
+
+\URCornerWallPaper{.25}{/Users/Noe/Documents/Cours/S1/Ressources/Logo.png}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE École Nationale des Ingénieurs de Brest}\\[1.5cm]
+\textsc{\Large Document de Conception}\\[0.5cm]
+\textsc{\large MDD-PROJET}\\[0.5cm]
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{\huge \bfseries Spazz}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+\Large
+Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
+
+
+{Date}\\[3cm] % Date, change the \today to a set date if you want to be precise
+
+{\large Version 1.0}
+ 
+
+\vfill
+
+\end{titlepage}
+
+\tableofcontents
+
+\section{Rappel du cahier des charges}
+
+\subsection{Contraintes techniques}
+
+\begin{itemize}[label = $\bullet$]
+	\item Le logiciel crée est évalué par les professeurs sur un ordinateur de salle de TP, il faut donc que le jeu s’exécute et soit jouable sur ces machines
+	\item Le cours porte sur le langage Python, il est donc évident que le jeu soit écrit en Python
+	\item Le paradigme utilisé est celui de la programmation procédurale
+	\item L'interface doit être en mode texte dans le terminal
+\end{itemize}
+
+\subsection{Fonctionalités}
+
+\begin{enumerate}[label*= F\arabic*,font = \textbf]
+	\item : Choisir un pseudo
+	\item : Choisir la difficulté
+	\item : Afficher les meilleurs scores
+	\item : Jouer un niveau
+	\begin{enumerate}[label*=.\arabic*,font = \textbf]
+		\item : Choisir le niveau
+		\item : Afficher le Jeu
+		\item : Changer de direction
+		\item : Ramasser un jeton
+		\item : Finir le niveau
+		\begin{enumerate}[label*=.\arabic*,font = \textbf]
+			\item : Afficher résultat
+			\item : Consulter les meilleurs scores
+			\item : afficher menu
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+
+\subsection{Prototype P1}
+
+Ce prototype porte sur la création du menu et sur l'affichage du niveau.\\
+Mise en œuvre de fonctionnalités : F1, F2, F3, F4.2.1, F4.2.4.1, F4.2.4.2, F4.2.4.3.
+
+\section{Principe des solutions techniques}
+
+\subsection{Langage}
+
+Conformément aux contraintes énoncées dans le cahier des charges, le codage est réalisé avec le langage Python.Nous choisissons la version 2.7.5.
+
+\subsection{Architecture du logiciel}
+
+Nous mettons en oeuvre le principe de la barrière d'abstraction. Chaque module correspond à un type de donnée et fournit toutes les opérations permettant de le manipuler de manière abstraite.
+
+\subsection{Interface utilisateur}
+
+L'interface utilisateur se fera via un terminal de type linux.\\
+
+\subsubsection{Boucle de simulation}
+
+Le programme mettra en oeuvre une boucle de simulation qui gérera l'affichage et et les événements clavier.
+
+\subsubsection{Images ASCII-Art}
+
+Pour stocker les niveaux du jeu nous utilisons des images ascii stockées dans des fichers textes
+
+
+
+\section{Analyse}
+
+\subsection{Analyse noms/verbes}
+
+\begin{lstlisting}
+Verbes :
+
+nommer, choisir, jouer, afficher, deplacer, finir, quitter
+
+Noms :
+
+joueur, Spazz, pseudo, direction, niveau, score, taille, position
+\end{lstlisting}
+
+\subsection{Types de Donnée}
+
+\lstinputlisting{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Types_de_donnees.txt}
+
+\subsection{Dépendance entre modules}
+
+
+	
+\end{document}  

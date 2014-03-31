@@ -1,0 +1,326 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[top=3.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[frenchb]{babel}
+\usepackage{ifpdf}
+\usepackage{asymptote}
+\usepackage{graphicx}
+\usepackage{fancybox}
+\usepackage{parallel}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{wallpaper}
+
+\usetikzlibrary{arrows,shapes,positioning,shadows,trees,automata}
+\newcommand{\gamename}{Spazz }
+
+\tikzset{
+    scenario/.style={
+        	rectangle,
+           	rounded corners,
+           	draw=black, very thick,
+           	fill=green!30,
+           	minimum height=3em,
+           	inner sep=2pt,
+           	text centered,
+           	drop shadow
+           },
+    action/.style={
+    		ellipse,
+    		minimum height=1.2cm,
+    		draw=black,very thick,
+    		fill=red!60,
+    		text centered,
+    		drop shadow
+    		},
+    }
+
+
+\begin{document}
+\URCornerWallPaper{.25}{/Users/Noe/Documents/Cours/S1/Ressources/Logo.png}
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%	HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\LARGE École Nationale des Ingénieurs de Brest}\\[1.5cm]
+\textsc{\Large Cahier des Charges}\\[0.5cm]
+\textsc{\large MDD-PROJET}\\[0.5cm]
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\HRule \\[0.4cm]
+{\huge \bfseries Spazz}\\[0.4cm] % Title of your document
+\HRule \\[1.5cm]
+ 
+\Large
+Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
+
+
+{\large 27 mars 2014}\\[3cm]
+
+{\large Version 1.0}
+ 
+
+\vfill
+
+\end{titlepage}
+\newpage
+\tableofcontents
+\newpage
+\section{Objectifs}
+
+\subsection{Description générale}
+
+
+Dans le cadre du cours de MDD, nous avons eu l'idée de créer un jeu vidéo mélangeant le concept du Snake et celui de jeu par niveau, à la manière de Mario.
+
+\section{Expression du besoin}
+
+\subsection{Règles du jeu}
+\begin{itemize}[label = $\bullet$]
+	\item l'utilisateur déplace une entité nommée Spazz qui doit se rendre à la fin du niveau avant la fin du temps imparti
+	\item Avant de pouvoir terminer un niveau, Spazz doit ramasser un nombre de jetons
+	\item Les jetons peuvent prendre différentes valeurs
+	\item À chaque fois que Spazz ramasse un jeton, il grandit en taille
+	\item À la fin d'un niveau, le nombre de points est la somme du temps restant au compteur et des points des jetons ramassés
+\end{itemize}
+
+Le but du jeu est de terminer tous les niveaux.
+
+\subsection{L'interface}
+
+\subsubsection{Visuel}
+
+L'interface visuelle est constituée d'un menu qui donne à l'utilisateur le choix de la difficulté, la possibilité de consulter les meilleurs scores et de changer le nom du pseudo.
+Pendant une partie l'utilisateur voit le niveau en cours avec Spazz qui se déplace, au dessus il y a une banderole qui affiche le score total, le temps restant et les nombre de jetons restants.
+
+\subsubsection{Interaction}
+
+L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des touches directionnelles. Ces touches changent la direction dans laquelle Spazz se dirige.
+Dans les menus, la touche Entrée est la touche de confirmation.
+
+\subsection{Manuel Utilisateur}
+
+\begin{description}
+	\item [Lancer le Jeu : ] \texttt{\$python Spazz}
+	\item [Choisir le pseudo : ] naviguer jusqu’à ``Changer Pseudo'' dans le menu, appuyer sur Entrée, taper le nouveau pseudo, confirmer avec la touche entrée.
+	\item [Choisir la difficulté : ] naviguer jusqu'à ``Difficulté'' dans le menu, appuyer sur entrée, choisir la difficulté, valider avec la touche entrée
+\end{description}
+
+\subsection{Contraintes techniques}
+
+\begin{itemize}[label = $\bullet$]
+	\item Le logiciel crée est évalué par les professeurs sur un ordinateur de salle de TP, il faut donc que le jeu s’exécute et soit jouable sur ces machines
+	\item Le cours porte sur le langage Python, il est donc évident que le jeu soit écrit en Python
+	\item Le paradigme utilisé est celui de la programmation procédurale
+	\item L'interface doit être en mode texte dans le terminal
+\end{itemize}
+
+\subsection{Scénario d'utilisation}
+\noindent
+\textbf{S0 : Scénario du menu}\\[.5cm]
+\begin{tikzpicture}[->,>=stealth']
+
+	 \node[scenario] (Lancer) 
+		{
+			Lancer le Jeu
+		};
+	  
+	 \node[action,
+	 	below of=Lancer,
+	 	xshift = 1.5 cm,
+	 	node distance = 2.5 cm
+	 	]
+	 	(Pseudo)
+		{
+			Choisir un pseudo
+		};
+		 
+	 \node[action,
+		right of=Pseudo,
+		yshift = 2cm,
+		node distance=3.5cm
+		]
+		(Difficult) 
+		{
+		 	Choisir la difficulté
+		};
+
+	 \node[scenario,
+		left of=Lancer,
+		node distance=3.5cm,
+		]
+		(Niveau) 
+		{
+			S1 : Jouer un niveau
+		};
+
+	 \node[action,
+		below of = Niveau,
+		node distance=3.5cm,
+		]
+		(Meilleurs) 
+		{
+			Afficher les meilleurs scores
+		};
+
+	 \path 	(Lancer)	edge[bend left = 10] (Pseudo)
+	 		(Lancer)	edge[bend left = 10] (Difficult)
+	 		(Lancer)	edge[bend right = 5] (Meilleurs)
+	 		(Lancer)	edge[bend right] (Niveau);
+\end{tikzpicture}
+
+\noindent
+\textbf{S1 : Jouer un niveau} \\[.5cm]
+
+\begin{tikzpicture}[->,>=stealth']
+	
+	\node[scenario,
+		text width = 3cm]
+		(Niveau) 
+		{
+			S1 : Jouer un niveau
+		};
+
+	\node[action,
+		right of = Niveau,
+		xshift = 1cm,
+		node distance = 3.5cm,
+		]
+		(Choix)
+		{
+			Choisir le niveau
+		};
+
+	\node[action,
+		text width = 3cm,
+		below of = Niveau,
+		node distance = 3.5cm
+		]
+		(Afficher)
+		{
+			Afficher le niveau
+		};
+
+	\node[action,
+		text width = 3cm,
+		yshift = 1.5cm,
+		right of = Afficher,
+		node distance = 3.5cm
+		]
+		(Direction)
+		{
+			Changer de direction
+		};
+
+	\node[action,
+		text width = 3cm,
+		yshift = 1.5cm,
+		left of = Afficher,
+		node distance = 3.5cm
+		]
+		(Jeton)
+		{
+			Ramasser un jeton
+		};
+
+	\node[action,
+		left of = Jeton,
+		yshift = 2cm,
+		node distance = 3.5cm,
+		text width = 3cm
+		]
+		(Finir)
+		{
+			Finir le niveau
+		};
+
+	\path 	(Niveau)	edge[bend left = 10] (Finir)
+			(Niveau)	edge[bend right = 20] (Choix)
+	 		(Niveau)	edge[bend left = 20] (Jeton)
+	 		(Niveau)	edge[bend right = 20] (Direction)
+	 		(Niveau)	edge[bend right = 5](Afficher);
+\end{tikzpicture}
+
+
+\newpage
+\section{Analyse du besoin}
+	
+\subsection{Fonctionalités}
+
+\begin{enumerate}[label*= F\arabic*,font = \textbf]
+	\item : Choisir un pseudo
+	\item : Choisir la difficulté
+	\item : Afficher les meilleurs scores
+	\item : Jouer un niveau
+	\begin{enumerate}[label*=.\arabic*,font = \textbf]
+		\item : Choisir le niveau
+		\item : Afficher le Jeu
+		\item : Changer de direction
+		\item : Ramasser un jeton
+		\item : Finir le niveau
+		\begin{enumerate}[label*=.\arabic*,font = \textbf]
+			\item : Afficher résultat
+			\item : Consulter les meilleurs scores
+			\item : afficher menu
+		\end{enumerate}
+	\end{enumerate}
+\end{enumerate}
+\section{Critères de validité et de qualité}
+\label{sec:crit_re_de_validit_et_de_qualit_}
+\subsection{Validation}
+\label{sub:validation}
+
+La validation du logiciel sera validée de la manière suivante :\\
+\begin{itemize}[label = $\bullet$]
+	\item Le code doit s’exécuter correctement en suivant les instructions livrées avec le logiciel.
+	\item L'utilisation du logiciel permettra de constater que les fonctionnalités ont bien été implémentées.
+\end{itemize}
+
+\subsection{Qualité}
+\label{sub:qualit_}
+
+Différent critères permettront d'évaluer la qualité du jeu:\\
+\begin{itemize}[label = $\bullet$]
+	\item La jouabilité:L'interface devra être suffisamment ergonomique pour permettre au joueur de jouer un niveau sans difficultés techniques (Lenteur, bugs).
+	\item La robustesse.
+	\item Le respect de méthodes de codage données en cours de MDD.
+\end{itemize}
+
+\section{Livrables} 
+
+\subsection{Echéancier}
+
+\noindent
+Jeudi 27 mars: Cahier des Charges \\
+Lundi 7 Avril: Conception \\
+Entre Avril et la dernière UC : Prototypes P1 et P2\\
+Dernière UC: Version Finale \\ \\
+
+Les documents texte seront au format \texttt{.pdf} et les programme P1,P2 et la version finale sous forme d'archive \texttt{.tgz}
+
+\subsection{Description des livrables}
+
+\begin{description}
+	\item [Cahier des Charges]	Expression et analyse du besoin.\\
+								Fichier : \texttt{Spazz-CdC.pdf}
+	\item [Document de conception] Fichier : Spazz-Conception.pdf
+	\item [Prototype P1] 	Ce prototype porte sur la création du menu et sur l'affichage du niveau.\\
+							Mise en œuvre de fonctionnalités : F1, F2, F3, F4.2.1, F4.2.4.1, F4.2.4.2, F4.2.4.3.\\
+							Fichier : \texttt{Spazz-P1.tgz}
+	\item [Version finale] Ficher : \texttt{Spazz-v1.0.tgz}
+\end{description}
+
+
+\end{document}
