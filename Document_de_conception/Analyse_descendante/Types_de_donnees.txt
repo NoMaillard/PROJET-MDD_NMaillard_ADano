@@ -1,0 +1,32 @@
+type : Game = struct 
+			level 			: Level
+			spazz			: Snake
+			score 			: Stats
+
+type : Level = struct
+			levelNumber 	: entier
+			map				: liste de liste de caracrtere
+			coin			: Coin
+
+type : Snake = struct
+			position 		: tuple (entier, entier)
+			direction 		: tuple (entier, entier)
+			speed			: entier
+			growRate		: entier
+			size			: entier
+			color			: indefini
+
+
+type : Menu = struct
+			difficulty 		: liste
+			name 			: chaine
+			highScores		: liste de tuples (chaine, entier)
+
+type : Stats = struct
+			timeLeft		: eniter
+			score 			: entier
+
+type : Coin = struct
+			number			: entier
+			position		: tuple(entier, entier)
+			
