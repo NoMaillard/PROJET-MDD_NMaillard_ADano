@@ -32,3 +32,8 @@
 *.vrb
 *.xdy
 *.tdo
+*.fls
+
+*.pdf
+
+*.pre
