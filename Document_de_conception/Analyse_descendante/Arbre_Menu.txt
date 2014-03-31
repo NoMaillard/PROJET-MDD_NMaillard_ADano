@@ -1,0 +1,12 @@
+Menu.interact()
+\qquad	|
+\qquad	+--	Menu.setDifficulty()
+\qquad	|\qquad	|
+\qquad	|\qquad	+-- Snake.setSpeed()
+\qquad	|\qquad	+-- Snake.setGrowRate()
+\qquad	|
+\qquad	+-- Menu.setName()
+\qquad	+-- Level.setUpLevel()
+\qquad	\qquad	|
+\qquad	\qquad	+-- Level.getNubmer()
+\qquad	\qquad	+-- Level.create()
