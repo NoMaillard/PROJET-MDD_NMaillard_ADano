@@ -1,7 +1,7 @@
 Main.show()
-\qquad	|
-\qquad	+-- Game.show()
-\qquad	\qquad	|
-\qquad	\qquad	+-- Level.show()
-\qquad	\qquad	+-- Stats.show()
-\qquad	\qquad	+-- Snake.show()
+    |
+    +-- Game.show()
+           |
+           +-- Level.show()
+           +-- Stats.show()
+           +-- Snake.show()

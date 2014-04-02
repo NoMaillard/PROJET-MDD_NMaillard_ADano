@@ -1,12 +1,12 @@
 Main.main()
-\qquad	|
-\qquad	+-- Main.init()
-\qquad	|\qquad	|
-\qquad	|\qquad	+-- Menu.show()
-\qquad	|\qquad	+-- Menu.interact()
-\qquad	|		
-\qquad	|
-\qquad	+-- Main.run()
-\qquad	\qquad	|
-\qquad	\qquad	+-- Main.show()
-\qquad	\qquad	+-- Main.interact()
+    |
+    +-- Main.init()
+    |       |
+    |       +-- Menu.show()
+    |       +-- Menu.interact()
+    |		
+    |
+    +-- Main.run()
+            |
+            +-- Main.show()
+            +-- Main.interact()
