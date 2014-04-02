@@ -1,12 +1,14 @@
 Menu.interact()
- 	|
- 	+--	Menu.setDifficulty()
- 	|     |
- 	|     +-- Snake.setSpeed()
- 	|     +-- Snake.setGrowRate()
- 	|
- 	+-- Menu.setName()
- 	+-- Level.setUpLevel()
- 	      |
- 	      +-- Level.getNubmer()
- 	      +-- Level.create()
+    |
+    +-- Menu.setDifficulty()
+    |       |
+    |       +-- Snake.setSpeed()
+    |       +-- Snake.setGrowRate()
+    |
+    +-- Menu.setName()
+    +-- Level.setUpLevel()
+    |       |
+    |       +-- Level.getNubmer()
+    |       +-- Level.create()
+    |
+    +-- Main.quit()
