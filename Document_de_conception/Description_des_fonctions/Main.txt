@@ -3,7 +3,10 @@
 \textbullet Main.\textbf{run()}
 \textbullet Main.\textbf{show()}
 \textbullet Main.\textbf{interact()}
+\textbullet Main.\textbf{finish()}
 \textbullet Main.\textbf{quit()}
+
+
 
 Main.\textbf{main()}->rien
 		Description : fonction principale du jeu
@@ -27,6 +30,11 @@ Main.\textbf{show()}->rein
 
 Main.\textbf{interact()}->rien
 		Description : gere les action de l'utilisateur
+		Parametres : aucun
+		Valeurs de retour : aucune
+
+Main.\textbf{finish()}->rien
+		Description : quitte le niveau
 		Parametres : aucun
 		Valeurs de retour : aucune
 
