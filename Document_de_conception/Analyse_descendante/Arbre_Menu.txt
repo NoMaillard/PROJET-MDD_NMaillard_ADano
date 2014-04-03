@@ -11,4 +11,4 @@ Menu.interact()
     |       +-- Level.getNubmer()
     |       +-- Level.create()
     |
-    +-- Main.quit()
+    +-- Menu.quit()
