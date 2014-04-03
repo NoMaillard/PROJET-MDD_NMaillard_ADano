@@ -8,8 +8,10 @@ Main.interact()
     |       +-- Snake.setDirection()
     |
     +-- Game.play()
-            |
-            +-- Level.play()
-            +-- Game.testVictory()
+    |       |
+    |       +-- Level.play()
+    |       +-- Game.testVictory()
+    |
+    +-- Main.finish()
 
 
