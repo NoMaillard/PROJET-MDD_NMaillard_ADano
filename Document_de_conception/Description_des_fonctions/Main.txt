@@ -9,36 +9,36 @@
 
 
 Main.\textbf{main()}->rien
-		Description : fonction principale du jeu
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : fonction principale du jeu
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{init()}->rien
-		Description : initialisation
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : initialisation
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{run()}->rien
-		Description : boucle de simulation
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : boucle de simulation
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{show()}->rein
-		Description : affiche le jeu
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : affiche le jeu
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{interact()}->rien
-		Description : gere les action de l'utilisateur
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : gere les action de l'utilisateur
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{finish()}->rien
-		Description : quitte le niveau
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : quitte le niveau
+        Parametres : aucun
+        Valeurs de retour : aucune
 
 Main.\textbf{quit()}->rien
-		Description : sauvegarde les scores et quitte le jeu
-		Parametres : aucun
-		Valeurs de retour : aucune
+        Description : sauvegarde les scores et quitte le jeu
+        Parametres : aucun
+        Valeurs de retour : aucune
