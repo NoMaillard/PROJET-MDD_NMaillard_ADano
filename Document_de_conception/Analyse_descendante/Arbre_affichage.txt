@@ -1,7 +1,10 @@
 Main.show()
     |
     +-- Game.show()
-           |
-           +-- Level.show()
-           +-- Stats.show()
-           +-- Snake.show()
+    |      |
+    |      +-- Level.show()
+    |      +-- Stats.show()
+    |      +-- Snake.show()
+    |      +-- Coin.show()
+    |
+    +-- Stats.showHighScores()

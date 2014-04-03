@@ -1,17 +1,19 @@
 Main.interact()
     |
-    +-- Snake.move()
+    +-- Game.move()
     |       |
     |       +-- Snake.getPosition()
     |       +-- Snake.setPosition()
-    |       +-- Snake.getDirection()
-    |       +-- Snake.setDirection()
+    |       +-- Snake.getFacing()
+    |       +-- Snake.setFacing()
     |
     +-- Game.play()
     |       |
-    |       +-- Level.play()
-    |       +-- Game.testVictory()
+    |       +-- Snake.play()
+    |       +-- Coin.spawn()
+    |       +-- Game.finishLevel()
+    |               |
+    |               +-- Level.testVictory()
+    |               +-- Level.testDefeat()
     |
-    +-- Main.finish()
-
-
+    +-- Main.quit()
