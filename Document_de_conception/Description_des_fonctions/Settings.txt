@@ -19,6 +19,6 @@ Settings.\textbf{askDifficulty()}->float
         Valeurs de retour : valeur de la vitesse
 
 Settings.\textbf{askLevelNumber()}->entier
-                Description : demande le niveau à charger
-                Parametres : aucun
-                Valeurs de retour : numero du niveau à charger
+        Description : demande le niveau à charger
+        Parametres : aucun
+        Valeurs de retour : numero du niveau à charger
