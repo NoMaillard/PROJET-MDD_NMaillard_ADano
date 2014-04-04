@@ -10,23 +10,24 @@ type : Level = struct
 
 type : Snake = struct
 			position 		: tuple (entier, entier)
-			direction 		: tuple (entier, entier)
+			facing	 		: tuple (entier, entier)
 			speed			: entier
 			growRate		: entier
 			size			: entier
 			color			: indefini
 
 
-type : Menu = struct
+type : Settings = struct
 			difficulty 		: liste
+			levelNumber		: entier
 			name 			: chaine
-			highScores		: liste de tuples (chaine, entier)
 
 type : Stats = struct
 			timeLeft		: eniter
 			score 			: entier
+			highScores		: liste de tuples (chaine, entier)
 
 type : Coin = struct
-			number			: entier
+			numberLeft		: entier
 			position		: tuple(entier, entier)
 			

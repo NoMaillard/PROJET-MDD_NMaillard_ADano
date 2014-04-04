@@ -1,17 +1,9 @@
-\textbullet Main.\textbf{main()}
 \textbullet Main.\textbf{init()}
 \textbullet Main.\textbf{run()}
 \textbullet Main.\textbf{show()}
 \textbullet Main.\textbf{interact()}
-\textbullet Main.\textbf{finish()}
 \textbullet Main.\textbf{quit()}
 
-
-
-Main.\textbf{main()}->rien
-        Description : fonction principale du jeu
-        Parametres : aucun
-        Valeurs de retour : aucune
 
 Main.\textbf{init()}->rien
         Description : initialisation
@@ -23,7 +15,7 @@ Main.\textbf{run()}->rien
         Parametres : aucun
         Valeurs de retour : aucune
 
-Main.\textbf{show()}->rein
+Main.\textbf{show()}->rien
         Description : affiche le jeu
         Parametres : aucun
         Valeurs de retour : aucune
@@ -33,12 +25,8 @@ Main.\textbf{interact()}->rien
         Parametres : aucun
         Valeurs de retour : aucune
 
-Main.\textbf{finish()}->rien
-        Description : quitte le niveau
-        Parametres : aucun
-        Valeurs de retour : aucune
 
 Main.\textbf{quit()}->rien
-        Description : sauvegarde les scores et quitte le jeu
+        Description : sauvegarde les données et quitte le jeu
         Parametres : aucun
         Valeurs de retour : aucune
