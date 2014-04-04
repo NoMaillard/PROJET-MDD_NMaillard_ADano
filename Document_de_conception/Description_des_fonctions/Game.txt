@@ -1,0 +1,29 @@
+\textbullet Game.\textbf{create(s)}
+\textbullet Game.\textbf{show(g)}
+\textbullet Game.\textbf{move(g)}
+\textbullet Game.\textbf{play(g)}
+\textbullet Game.\textbf{finishLevel(g)}
+
+Game.\textbf{create(s)}->Game
+		Description : crée une nouvelle partie
+		Parametres : 
+			s : Settings
+		Valeurs de retour : nouvelle partie en fonction des parmetres
+
+Game.\textbf{show(g)}->rien
+		Description : affiche le jeu
+		Parametres : 
+			g : Game
+		Valeurs de retour : aucune
+
+Game.\textbf{play(g)}->rien
+		Description : le spazz se déplace dans le niveau, quand il touche un jeton, un autre apparait, quand il touche un mur la partie est terminee
+		Parametres : 
+			g : Game
+		Valeurs de retour : aucune
+
+Game.\textbf{endGame(g)}->Game
+		Description : si le joueur perd ou qu'il gagne, le niveau est teminé
+		Parametres : 
+			g : Game
+		Valeurs de retour : le Game à la fin du niveau

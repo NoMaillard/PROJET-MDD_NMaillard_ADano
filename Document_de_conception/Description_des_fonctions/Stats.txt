@@ -1,0 +1,7 @@
+\textbullet Stats.\textbf{highScores(g)}
+
+Stats.\textbf{highScores(g)}->rien
+		Description : affiche les meilleurs scores
+		Parametres : 
+            g : Game
+		Valeurs de retour : aucune

@@ -1,0 +1,7 @@
+\textbullet Coin.\textbf{spawn(g)}
+
+Coin.\textbf{spawn(g)}->rien
+				Description : si il n'y a pas de jeton sur le plateau, en créer un
+				Parametres : 
+					g : Game
+				Valeurs de retour : aucune

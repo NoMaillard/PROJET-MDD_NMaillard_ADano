@@ -1,0 +1,14 @@
+\textbullet Level.\textbf{create(s)}
+\textbullet Level.\textbf{show(l)}
+
+Level.\textbf{create(s)}->liste de liste de caracteres
+        Description : crée un niveau
+        Parametres : 
+            s : Settings
+        Valeurs de retour : niveau avec les settings
+
+Level.\textbf{show(l)}->rien
+        Description : affiche le niveau
+        Parametres : 
+            l : Level
+        Valeurs de retour : aucune 
