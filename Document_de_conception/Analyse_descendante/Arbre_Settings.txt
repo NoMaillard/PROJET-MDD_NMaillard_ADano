@@ -1,9 +1,4 @@
-Settings.setSettings()
-    |
-    +-- Settings.setDifficulty()
-    |       |
-    |       +-- Snake.setSpeed()
-    |       +-- Snake.setGrowRate()
-    |
-    +-- Settings.setName()
-    +-- Settings.setLevelNumber()
+Settings.askSettings()
+    +-- Settings.askName()
+    +-- Settings.askDifficulty()
+    +-- Settings.askLevelNumber()

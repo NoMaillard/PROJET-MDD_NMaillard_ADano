@@ -1,22 +1,11 @@
 Main.main()
-    |
     +-- Main.init()
-    |       |
     |       +-- Settings.askSettings()
-    |       |       |
-    |       |       +-- Settings.askName()
-    |       |       +-- Settings.askDifficulty()
-    |       |       +-- Settings.askLevelNumber()
-    |       |
-    |       +-- Settings.setSettings()
     |       +-- Game.create()
-    |               |
-    |		        +-- Level.create()
+    |               +-- Level.create()
     |               +-- Snake.create()
     |
     +-- Main.run()
-    |       |
-    |       +-- Main.show()
-    |       +-- Main.interact()
-    |
-    +-- Main.quit()
+            |
+            +-- Main.show()
+            +-- Main.interact()
