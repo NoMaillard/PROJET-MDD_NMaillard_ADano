@@ -102,20 +102,19 @@ Le but du jeu est de terminer tous les niveaux.
 
 \subsubsection{Visuel}
 
-L'interface visuelle est constituée d'un menu qui donne à l'utilisateur le choix de la difficulté, la possibilité de consulter les meilleurs scores et de changer le nom du pseudo.
 Pendant une partie l'utilisateur voit le niveau en cours avec Spazz qui se déplace, au dessus il y a une banderole qui affiche le score total, le temps restant et les nombre de jetons restants.
 
 \subsubsection{Interaction}
 
 L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des touches directionnelles. Ces touches changent la direction dans laquelle Spazz se dirige.
-Dans les menus, la touche Entrée est la touche de confirmation.
+
 
 \subsection{Manuel Utilisateur}
 
 \begin{description}
 	\item [Lancer le Jeu : ] \texttt{\$python Spazz}
-	\item [Choisir le pseudo : ] naviguer jusqu’à ``Changer Pseudo'' dans le menu, appuyer sur Entrée, taper le nouveau pseudo, confirmer avec la touche entrée.
-	\item [Choisir la difficulté : ] naviguer jusqu'à ``Difficulté'' dans le menu, appuyer sur entrée, choisir la difficulté, valider avec la touche entrée
+	\item [Choisir le pseudo : ] entrer le pseudo confirmer avec la touche entrée.
+	\item [Choisir la difficulté : ] entrer la difficulté choisie
 \end{description}
 
 \subsection{Contraintes techniques}
@@ -166,18 +165,8 @@ Dans les menus, la touche Entrée est la touche de confirmation.
 			S1 : Jouer un niveau
 		};
 
-	 \node[action,
-		below of = Niveau,
-		node distance=3.5cm,
-		]
-		(Meilleurs) 
-		{
-			Afficher les meilleurs scores
-		};
-
 	 \path 	(Lancer)	edge[bend left = 10] (Pseudo)
 	 		(Lancer)	edge[bend left = 10] (Difficult)
-	 		(Lancer)	edge[bend right = 5] (Meilleurs)
 	 		(Lancer)	edge[bend right] (Niveau);
 \end{tikzpicture}
 
@@ -246,11 +235,22 @@ Dans les menus, la touche Entrée est la touche de confirmation.
 			Finir le niveau
 		};
 
+	\node[action,
+		below of = Finir,
+		node distance = 4cm,
+		text width = 3cm
+		]
+		(Meilleurs)
+		{
+			Afficher high scores
+		};
+
 	\path 	(Niveau)	edge[bend left = 10] (Finir)
 			(Niveau)	edge[bend right = 20] (Choix)
 	 		(Niveau)	edge[bend left = 20] (Jeton)
 	 		(Niveau)	edge[bend right = 20] (Direction)
-	 		(Niveau)	edge[bend right = 5](Afficher);
+	 		(Niveau)	edge[bend right = 5](Afficher)
+	 		(Finir) 	edge[bend right = 30](Meilleurs);
 \end{tikzpicture}
 
 
@@ -262,7 +262,6 @@ Dans les menus, la touche Entrée est la touche de confirmation.
 \begin{enumerate}[label*= F\arabic*,font = \textbf]
 	\item : Choisir un pseudo
 	\item : Choisir la difficulté
-	\item : Afficher les meilleurs scores
 	\item : Jouer un niveau
 	\begin{enumerate}[label*=.\arabic*,font = \textbf]
 		\item : Choisir le niveau
@@ -272,15 +271,15 @@ Dans les menus, la touche Entrée est la touche de confirmation.
 		\item : Finir le niveau
 		\begin{enumerate}[label*=.\arabic*,font = \textbf]
 			\item : Afficher résultat
-			\item : Consulter les meilleurs scores
-			\item : afficher menu
+			\item : Afficher les meilleurs scores
+			\item : Quitter le jeu
 		\end{enumerate}
 	\end{enumerate}
 \end{enumerate}
 \section{Critères de validité et de qualité}
-\label{sec:crit_re_de_validit_et_de_qualit_}
+
 \subsection{Validation}
-\label{sub:validation}
+
 
 La validation du logiciel sera validée de la manière suivante :\\
 \begin{itemize}[label = $\bullet$]
@@ -289,7 +288,7 @@ La validation du logiciel sera validée de la manière suivante :\\
 \end{itemize}
 
 \subsection{Qualité}
-\label{sub:qualit_}
+
 
 Différent critères permettront d'évaluer la qualité du jeu:\\
 \begin{itemize}[label = $\bullet$]
@@ -303,22 +302,19 @@ Différent critères permettront d'évaluer la qualité du jeu:\\
 \subsection{Echéancier}
 
 \noindent
-Jeudi 27 mars: Cahier des Charges \\
-Lundi 7 Avril: Conception \\
-Entre Avril et la dernière UC : Prototypes P1 et P2\\
-Dernière UC: Version Finale \\ \\
-
-Les documents texte seront au format \texttt{.pdf} et les programme P1,P2 et la version finale sous forme d'archive \texttt{.tgz}
-
+Avant la 3\textsuperscript{ème} UC : Prototype P1 \\
+Avant la 5\textsuperscript{ème} UC : Prototype P2 \\
+Avant la Dernière UC: Version Finale 
 \subsection{Description des livrables}
 
 \begin{description}
 	\item [Cahier des Charges]	Expression et analyse du besoin.\\
-								Fichier : \texttt{Spazz-CdC.pdf}
-	\item [Document de conception] Fichier : Spazz-Conception.pdf
-	\item [Prototype P1] 	Ce prototype porte sur la création du menu et sur l'affichage du niveau.\\
-							Mise en œuvre de fonctionnalités : F1, F2, F3, F4.2.1, F4.2.4.1, F4.2.4.2, F4.2.4.3.\\
+								Fichier : \texttt{Cahier\_des\_charges.pdf}
+	\item [Document de conception] Fichier : \texttt{Document\_de\_conception-vx.x.pdf}
+	\item [Prototype P1] 	Ce prototype porte sur la création et l'affichage d'un niveau.\\
+							Mise en œuvre de fonctionnalités : F1, F2, F3.2, F3.2\\
 							Fichier : \texttt{Spazz-P1.tgz}
+	\item [Prototype P2]
 	\item [Version finale] Ficher : \texttt{Spazz-v1.0.tgz}
 \end{description}
 

@@ -59,7 +59,7 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 \end{titlepage}
 
 \tableofcontents
-
+\newpage
 \section{Rappel du cahier des charges}
 
 \subsection{Contraintes techniques}
@@ -76,7 +76,6 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 \begin{enumerate}[label*= F\arabic*,font = \textbf]
 	\item : Choisir un pseudo
 	\item : Choisir la difficulté
-	\item : Afficher les meilleurs scores
 	\item : Jouer un niveau
 	\begin{enumerate}[label*=.\arabic*,font = \textbf]
 		\item : Choisir le niveau
@@ -86,16 +85,16 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 		\item : Finir le niveau
 		\begin{enumerate}[label*=.\arabic*,font = \textbf]
 			\item : Afficher résultat
-			\item : Consulter les meilleurs scores
-			\item : afficher menu
+			\item : Afficher les meilleurs scores
+			\item : quitter le jeu
 		\end{enumerate}
 	\end{enumerate}
 \end{enumerate}
 
 \subsection{Prototype P1}
 
-Ce prototype porte sur la création du menu et sur l'affichage du niveau.\\
-Mise en œuvre de fonctionnalités : F1, F2, F3, F4.2.1, F4.2.4.1, F4.2.4.2, F4.2.4.3.
+Ce prototype porte sur la création et l'affichage du niveau.\\
+Mise en œuvre de fonctionnalités : F1, F2, F3.2, F3.2
 
 \section{Principe des solutions techniques}
 
@@ -119,7 +118,7 @@ Le programme mettra en oeuvre une boucle de simulation qui gérera l'affichage e
 
 Pour stocker les niveaux du jeu nous utilisons des images ascii stockées dans des fichers textes
 
-
+\newpage
 
 \section{Analyse}
 
@@ -145,16 +144,16 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 
 \subsection{Analyse descendante}
 
-\subsubsection{Arbre Principal}
+\subsubsection{Arbre principal}
     	
 \begin{alltt}
 \input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_principal.txt}
 \end{alltt}
 
-\subsubsection{Arbre Menu}
+\subsubsection{Arbre réglages}
 
 \begin{alltt}
-\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_Menu.txt}
+\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_Settings.txt}
 \end{alltt}
 
 \subsubsection{Arbre affichage}
@@ -167,7 +166,7 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 \begin{alltt}
 	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_interaction.txt}
 \end{alltt}
-
+\newpage
 \section{Description des fonctions}
 
 \subsection{Programme principal : Main.py}
@@ -175,10 +174,29 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 \begin{alltt}
 	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Main.txt}
 \end{alltt}
-
-\subsection{Module Menu : Menu.py}
+\newpage
+\subsection{Module Game.py}
 
 \begin{alltt}
-	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Menu.txt}
+\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Game.txt}
 \end{alltt}
+\newpage
+\subsection{Module Settings.py}
+
+\begin{alltt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Settings.txt}
+\end{alltt}
+
+\subsection{Module Level.py}
+\begin{alltt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Level.txt}
+\end{alltt}
+
+\newpage
+\subsection{Module Coin.py}
+
+\begin{alltt}
+\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Coin.txt}
+\end{alltt}
+
 \end{document}  
