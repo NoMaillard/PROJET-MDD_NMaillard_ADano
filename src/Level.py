@@ -1,49 +1,54 @@
-#import Settings
-#import Coin
+import Settings
+import Coin
+import sys
 
 
 def main():
-        m = mapCreate(2)
-
-        for i in m :
-                print map[i]
-                print
+        m = create(4)
+        show(m)
 
 
-        
 
 
-def create(setting):
-	map = mapCreate(setting["levelNumber"])
-	# charge la carte du fichier dans la variable
-	
-	
-	
-	return map
-	
-	
+
+
+
 
 def show(level):
+        assert type(level) is list
+        
 	# affiche le niveau
+        for i in level :
+                ligne = ""
+                for caractere in i :
+                        ligne = ligne + caractere
+                sys.stdout.write(ligne)
+                sys.stdout.write("\n")
+                
+        return
 	
-	return
 	
-	
-def mapCreate(mapNumber):
+def create(mapNumber):
+        assert type(mapNumber) is int
+        
 	
 	# recupere l'ensemble des cartes
-	fichier = open('maps.txt', 'r')
-	chaine = fichier.read()
-	
+        fichier = open('maps.txt', 'r')
+        chaine = fichier.read()
+
+        
 	# separation des cartes
-	allMaps = chaine.split("map\n")
+        allMaps = chaine.split("map\n")
 	
 	# test carte demandee existante
-	if mapNumber <= len(allMaps):
-		# separation des lignes de la carte demandee
-		map = allMaps[mapNumber].split("\n")
-
-	return map
+        if mapNumber < len(allMaps):
+                # separation des lignes de la carte demandee
+                level = list(allMaps[mapNumber].split("\n"))
+                return level
+        else:
+                sys.stdout.write("Error\n mapNumber > len(allMaps)\n")
+                return
+                
 	
 
 
