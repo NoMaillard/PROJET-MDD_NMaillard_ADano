@@ -1,7 +1,16 @@
-import Settings
-import Coin
+#import Settings
+#import Coin
 
 
+def main():
+        m = mapCreate(2)
+
+        for i in m :
+                print map[i]
+                print
+
+
+        
 
 
 def create(setting):
@@ -17,14 +26,13 @@ def create(setting):
 def show(level):
 	# affiche le niveau
 	
-	
-	
+	return
 	
 	
 def mapCreate(mapNumber):
 	
 	# recupere l'ensemble des cartes
-	fichier = open(maps.txt, "r")
+	fichier = open('maps.txt', 'r')
 	chaine = fichier.read()
 	
 	# separation des cartes
@@ -34,9 +42,14 @@ def mapCreate(mapNumber):
 	if mapNumber <= len(allMaps):
 		# separation des lignes de la carte demandee
 		map = allMaps[mapNumber].split("\n")
+
+	return map
 	
 
-	
+
+if __name__ == "__main__" :
+        main()
+
 	
 	
 	
