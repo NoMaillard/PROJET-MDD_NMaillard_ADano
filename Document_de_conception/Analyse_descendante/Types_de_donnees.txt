@@ -2,9 +2,9 @@ type : Game = struct
 			level 			: Level
 			spazz			: Snake
 			score 			: Stats
+			settings		: Settings
 
 type : Level = struct
-			levelNumber 	: entier
 			map				: liste de liste de caracrtere
 			coin			: Coin
 
@@ -29,5 +29,5 @@ type : Stats = struct
 
 type : Coin = struct
 			numberLeft		: entier
-			position		: tuple(entier, entier)
+			position		: tuple (entier, entier)
 			

@@ -8,4 +8,3 @@ def play(game):
 
 def endGame(game):
 	#fin du niveau
-	

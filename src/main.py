@@ -16,4 +16,8 @@ def interact():
 
 def quit():
 	#quit
-
+	
+#########################
+init()
+run()
+quit()
