@@ -5,21 +5,25 @@ import curses
 
 
 
-curses.initscr()
-win = curses.newwin(20,80,0,0)
-curses.noecho()
-curses.curs_set(0)
-win.border(0)
-win.nodelay(0)
+def create(name,levelNumber,difficulty):
+    curses.initscr()
+    win = curses.newwin(20,80,0,0)
+    curses.noecho()
+    curses.curs_set(0)
+    win.border(0)
+    win.nodelay(0)
+    
 
-
-def askSetting(input):
-    if input == "playerName":
-        return 'playerName',askName()
+def askSetting(input,settings):
+    if input == "playerName":  
+        settings['playerName'] = askName()
+        return settings
     elif input == "difficulty":
-        return 'difficulty',askDifficulty()
+        settings['difficulty'] = askDifficulty()
+        return settings
     elif input == "levelNumber":
-        return 'levelNumber',askLevelNumber()
+        settings['levelNumber'] = askLevelNumber()
+        return settings
 
 def askName():
     win.erase()

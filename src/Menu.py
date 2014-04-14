@@ -1,81 +1,65 @@
 #!/usr/bin/python
 import curses
-from curses import KEY_UP, KEY_DOWN
-
-import Settings
-
-curses.initscr()
-win = curses.newwin(20,80,0,0)
-curses.noecho()
-curses.curs_set(0)
-win.border(0)
-win.nodelay(0)
 
 
-def launch():
-	global settings
-	name = "Player1"
-	difficulty = 2
-	levelNumber = 1
-	menuItem = ["levelNumber","playerName","difficulty","HighScores","Start"]
-	settings = {'playerName' : name, 'difficulty' : difficulty, 'levelNumber' : levelNumber}
-	menuCursor = 0
-	show(menuCursor)
-	key = 0
-	win.clear()
-	while key != 27:
-		win.border(0)
+def create(*argv):
+    menuCursor = 0
+    selectedItem = -1
+    menuItems = []
+    j = 0
+    for i in argv:
+        menuItems.append(i)
+        j += 1
+    menu = {'items' : menuItems,'cursor' : menuCursor,'selectedItem' : selectedItem}
+    return menu
 
-		show(menuCursor)
-		key = win.getch()
-		
-		if key  == ord('z'):
-			if menuCursor != 0:
-				menuCursor -= 1
-		if key == ord('s'):
-			if menuCursor != len(menuItem)-1:
-				menuCursor += 1
-		if key == ord('e'):
-			if menuCursor < 3:
-				itemSetting,itemVariable = Settings.askSetting(menuItem[menuCursor])
-				settings[itemSetting] = itemVariable
-			elif menuCursor == 3:
-				HighScores.show()
-			elif menuCursor == 4:
-				curses.nocbreak()
-				curses.echo()
-				curses.endwin()
-				return settings
-	
-		win.erase()
+def show(menu):
+    global win
+    win.erase()
+    for i in range(len(menu['items'])): 
+        if i == menu['cursor']:
+            win.addstr(10+i,20,"->"+str(menu['items'][i]))
+        else:
+            win.addstr(10+i,22,str(menu['items'][i]))
+    return
 
-def show(menuCursor):
-	if menuCursor == 0:
-		win.addstr(10,20,"->Choisir le niveau    ")
-	else:
-		win.addstr(10,22,"Choisir le niveau    ")
-	if menuCursor == 1:
-		win.addstr(11,20,"->Choisir le nom    ")
-	else:
-		win.addstr(11,22,"Choisir le nom    ")
-	if menuCursor == 2:
-		win.addstr(12,20,"->Choisir la difficulte    ")
-	else:
-		win.addstr(12,22,"Choisir la difficulte    ")
-	if menuCursor == 3:
-		win.addstr(13,20,"->Afficher les meilleurs scores    ")
-	else:
-		win.addstr(13,22,"Afficher les meilleurs scores     ")
-	if menuCursor == 4:
-		win.addstr(14,20,"->Demarrer le niveau     ")
-	else:
-		win.addstr(14,22,"Demarrer le niveau     ")
-	win.addstr(2,3,settings['playerName'])
-	win.addstr(3,3,"Niveau : "+str(settings['levelNumber']))
-	win.addstr(4,3,"Difficulte : "+str(settings['difficulty']))
+def interact(menu):
+    global win
+    menu['selectedItem'] = -1
 
+    key = win.getch()
+    if key == ord('z'):
+        if menu['cursor'] != 0:
+            menu['cursor'] -= 1
+    if key == ord('s'):
+        if menu['cursor'] != len(menu['items'])-1:
+            menu['cursor'] += 1
+    if key == ord('e'):
+        menu['selectedItem'] = menu['cursor']
+    return menu
 
+def quit():
+    global state
+    state = 'game'
+    return
 
 
 if __name__ == '__main__':
-	launch()
+    global win
+    curses.initscr()
+    win = curses.newwin(20,80,0,0)
+    curses.noecho()
+    curses.curs_set(0)
+    win.border(0)
+    win.nodelay(0)
+    menu = create('First','second','third')
+    submenu = create('zelfjez','zaefef')
+    while True:
+        show(menu)
+        interact(menu)
+        if menu['selectedItem'] == 0:
+            while True:
+                show(submenu)
+                interact(submenu)
+                if submenu['selectedItem'] == 1:
+                    break

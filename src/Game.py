@@ -1,10 +1,13 @@
-def create(settings):
-	#cree un object de type jeu
+def show():
+	Level.show()
+	Snake.show()
+	Coin.show()
+	Stats.show()
+	return
 
-def show(game):
-	#affiche le jeu
+def interact():
+	Snake.interact()
+	return
 
-def play(game):
-
-def endGame(game):
-	#fin du niveau
+def quit():
+	return
