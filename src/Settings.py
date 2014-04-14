@@ -1,11 +1,12 @@
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import curses
-from curses import KEY_UP, KEY_DOWN
+
 
 
 curses.initscr()
-win = curses.newwin(30,70,0,0)
+win = curses.newwin(20,80,0,0)
 curses.noecho()
 curses.curs_set(0)
 win.border(0)
@@ -13,20 +14,16 @@ win.nodelay(0)
 
 
 def askSetting(input):
-    name = "Player1"
-    difficulty = 2
-    levelNumber = 1
     if input == "playerName":
-        name = askName()
+        return 'playerName',askName()
     elif input == "difficulty":
-        difficulty = askDifficulty()
+        return 'difficulty',askDifficulty()
     elif input == "levelNumber":
-        levelNumber = askLevelNumber()
-
-    settings = {'playerName' : name, 'difficulty' : difficulty, 'levelNumber' : levelNumber}
+        return 'levelNumber',askLevelNumber()
 
 def askName():
-    win.clear()
+    win.erase()
+    win.border(0)
     curses.echo()
     win.addstr(10,20,"Comment t'appelles-tu ?")
     name = win.getstr(11,20)
@@ -34,25 +31,28 @@ def askName():
     return name
 
 def askDifficulty():
-    win.clear()
-    win.addstr(10,20,"Choisis ta difficulté")
+    win.erase()
+    win.border(0)
     menuCursor = 0
     key = 0
+    
     while key != 27:
-
+        win.erase()
+        win.border(0)
+        win.addstr(10,20,"Choisis ta difficulté")
         if menuCursor == 0:
-            win.addstr(11,20,"[1 : Facile]    ")
+            win.addstr(11,20,"->1 : Facile    ")
         else:
-            win.addstr(11,20,"1 : Facile    ")
+            win.addstr(11,22,"1 : Facile    ")
         if menuCursor == 1:
-            win.addstr(12,20,"[2 : Normal]    ")
+            win.addstr(12,20,"->2 : Normal    ")
         else:
-            win.addstr(12,20,"2 : Normal    ")
+            win.addstr(12,22,"2 : Normal    ")
         if menuCursor == 2:
-            win.addstr(13,20,"[3 : Difficile]    ")
+            win.addstr(13,20,"->3 : Difficile    ")
         else: 
-            win.addstr(13,20,"3 : Difficile    ")
-        
+            win.addstr(13,22,"3 : Difficile    ")
+
         key = win.getch()
         if key  == ord('z'):
             if menuCursor != 0:
@@ -65,23 +65,28 @@ def askDifficulty():
             return difficulty
 
 def askLevelNumber():
-    win.clear()
+    win.border(0)
     numberOfLevels = 12
     curses.echo()
-    win.addstr(10,20,"Quel niveau veux-tu jouer ? ")
-    for i in range(numberOfLevels):
-        while i < 5:
-            win.addstr(10,20+i,i)
-        while 5 <= i < 10:
-            win.addstr(11,15+i,i)
-        while 10 <= i < 15:
-            win.addstr(12,10+i,i)
-    levelNumber = win.getstr(13,20)
+    levelNumber = -1
+    while levelNumber < 0 or levelNumber > numberOfLevels:
+        win.border(0)
+        try:
+            win.addstr(10,20,"Quel niveau veux-tu jouer ? [1 - "+str(numberOfLevels)+"]")
+            levelNumber = int(win.getstr(11,20))
+            win.erase()
+            if levelNumber < 0 or levelNumber > numberOfLevels:
+                win.addstr(12,20,"retry !")
+        except ValueError:
+            win.erase()
+            win.addstr(12,20,"retry !")
     curses.noecho()
     return levelNumber
 
 
 if __name__ == '__main__':
-    settings = askSesttings()
+    askSetting("playerName")
+    askSetting("difficulty")
+    askSetting("levelNumber")
     print settings
     
