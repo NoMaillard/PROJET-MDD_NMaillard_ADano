@@ -1,6 +1,14 @@
 import Settings
 import Coin
 import sys
+import curses
+
+
+win = curses.newwin(20, 80, 0, 0)
+curses.initscr()
+curses.noecho()
+curses.keypad(1)
+
 
 
 def main():
@@ -22,8 +30,8 @@ def show(level):
                 ligne = ""
                 for caractere in i :
                         ligne = ligne + caractere
-                sys.stdout.write(ligne)
-                sys.stdout.write("\n")
+                win.addstr(ligne)
+                win.addstr("\n")
                 
         return
 	
@@ -46,7 +54,7 @@ def create(mapNumber):
                 level = list(allMaps[mapNumber].split("\n"))
                 return level
         else:
-                sys.stdout.write("Error\n mapNumber > len(allMaps)\n")
+                win.addstr("Error\n mapNumber > len(allMaps)\n")
                 return
                 
 	
