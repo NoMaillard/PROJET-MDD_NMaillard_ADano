@@ -1,32 +1,35 @@
 \textbullet Main.\textbf{init()}
-\textbullet Main.\textbf{run()}
-\textbullet Main.\textbf{show()}
-\textbullet Main.\textbf{interact()}
-\textbullet Main.\textbf{quit()}
+\textbullet Main.\textbf{run(game)}
+\textbullet Main.\textbf{show(game)}
+\textbullet Main.\textbf{interact(game)}
 
 
 Main.\textbf{init()}->rien
-        Description : initialisation
+        Description : initialisation des paramètres du jeu
         Parametres : aucun
         Valeurs de retour : aucune
 
-Main.\textbf{run()}->rien
+Main.\textbf{run(game)}->rien
         Description : boucle de simulation
-        Parametres : aucun
+        Parametres :
+                game : Game
         Valeurs de retour : aucune
 
-Main.\textbf{show()}->rien
+Main.\textbf{show(game)}->rien
         Description : affiche le jeu
-        Parametres : aucun
+        Parametres :
+                game : Game
         Valeurs de retour : aucune
 
-Main.\textbf{interact()}->rien
+Main.\textbf{interact(game)}->rien
         Description : gere les action de l'utilisateur
-        Parametres : aucun
+        Parametres :
+                game : Game
         Valeurs de retour : aucune
 
 
-Main.\textbf{quit()}->rien
-        Description : sauvegarde les données et quitte le jeu
-        Parametres : aucun
+Main.\textbf{quit(game)}->rien
+        Description : quitte le jeu
+        Parametres :
+                game : Game
         Valeurs de retour : aucune

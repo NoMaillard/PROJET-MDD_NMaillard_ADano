@@ -1,8 +1,3 @@
 Main.interact()
-    +-- Game.play()
-    |       +-- Snake.play()
-    |       +-- Coin.spawn()
-    |       +-- Game.endGame()
-    |
-    +-- Main.quit()
-            +-- Stats.showHighScores()
+    +-- Menu.interact()
+    +-- Game.interact()

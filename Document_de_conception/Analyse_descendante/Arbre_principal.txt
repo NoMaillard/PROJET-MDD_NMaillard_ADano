@@ -1,11 +1,9 @@
 Main.main()
     +-- Main.init()
-    |       +-- Settings.askSettings()
+    |       +-- Level.create()
+    |       +-- Menu.create()
     |       +-- Game.create()
-    |               +-- Level.create()
-    |               +-- Snake.create()
     |
     +-- Main.run()
-            |
             +-- Main.show()
             +-- Main.interact()

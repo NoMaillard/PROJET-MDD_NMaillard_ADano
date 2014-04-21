@@ -1,6 +1,3 @@
 Main.show()
+    +-- Menu.show()
     +-- Game.show()
-           +-- Level.show()
-           +-- Stats.show()
-           +-- Snake.show()
-           +-- Coin.show()

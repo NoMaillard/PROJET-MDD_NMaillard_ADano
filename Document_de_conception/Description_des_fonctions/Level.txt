@@ -1,14 +1,42 @@
-\textbullet Level.\textbf{create(s)}
-\textbullet Level.\textbf{show(l)}
+\textbullet Level.\textbf{create(levelNumber, levelFile)}
+\textbullet Level.\textbf{getLevelNumber(level)}
+\textbullet Level.\textbf{setLevelNumber(levelNumber, level)}
+\textbullet Level.\textbf{askLevelNumber(game)}
+\textbullet Level.\textbf{getNumberOfLevels(level)}
 
-Level.\textbf{create(s)}->liste de liste de caracteres
-        Description : crée un niveau
-        Parametres : 
-            s : Settings
-        Valeurs de retour : niveau avec les settings
 
-Level.\textbf{show(l)}->rien
-        Description : affiche le niveau
-        Parametres : 
-            l : Level
-        Valeurs de retour : aucune 
+Level.\textbf{create(levelNumber, levelFile)}->Level
+        Description : crée la variable abstraite de type Level
+        Parametres :
+                levelNumber : entier
+                levelFile   : chaine de caractères
+        Valeurs de retour : variable de type Level
+
+
+Level.\textbf{getLevelNumber()}->entier
+        Description : retourne le numero du niveau
+        Parametres :
+                alevel : Level
+        Valeurs de retour : variable levelNumber contenue dans level
+
+
+Level.\textbf{setLevelNumber()}->Level
+        Description : change le numéro du niveau de la variable level
+        Parametres :
+                levelNumber : entier
+                level       : Level
+        Valeurs de retour : level
+
+
+Level.\textbf{askLevelNumber()}->entier
+        Description : demande le numéro du niveau à l'utilisateur
+        Parametres :
+                game : Game
+        Valeurs de retour : numero du niveau demandé par l'utilisateur
+
+
+Level.\textbf{getNumberOfLevels()}->entier
+        Description : retourne le nombre total de niveaux
+        Parametres :
+                level : Level
+        Valeurs de retour : nombre de niveaux dans la variable level

@@ -1,0 +1,40 @@
+\textbullet Menu.\textbf{create(*argv)}
+\textbullet Menu.\textbf{show(game)}
+\textbullet Menu.\textbf{interact(game)}
+\textbullet Menu.\textbf{getNumberOfMenuItems(menu)}
+\textbullet Menu.\textbf{quit(game)}
+
+
+Menu.\textbf{create()}->Menu
+                Description : crée le menu selon un nombre variable d'arguments
+                Parametres :
+                        argv : liste de chaine de caractères
+                Valeurs de retour : menu
+
+
+Menu.\textbf{show(game)}->rien
+        Description : affiche le menu
+        Parametres :
+                game : Game
+        Valeurs de retour : aucune
+
+
+Menu.\textbf{interact(game)}->rien
+        Description : interagit avec l'utilisateur
+        Parametres :
+                game : Game
+        Valeurs de retour : aucune
+
+
+Menu.\textbf{getNumberOfMenuItems(menu)}->entier
+        Description : retourne le nombre d'items que le menu inclut
+        Parametres :
+                menu : Menu
+        Valeurs de retour : nombre l'items dans le Menu
+
+
+Menu.\textbf{quit()}->game
+        Description : quitte le menu et autorise le début du jeu
+        Parametres :
+                game : Game
+        Valeurs de retour : game dont le state à été changé

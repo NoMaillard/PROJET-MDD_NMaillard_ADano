@@ -1,33 +1,20 @@
-type : Game = struct 
+type : Game = struct
 			level 			: Level
 			spazz			: Snake
-			score 			: Stats
-			settings		: Settings
+            menu            : Menu
+            state           : chaine de caracteres
+            difficulty      : entier
+
 
 type : Level = struct
-			map				: liste de liste de caracrtere
-			coin			: Coin
-
-type : Snake = struct
-			position 		: tuple (entier, entier)
-			facing	 		: tuple (entier, entier)
-			speed			: entier
-			growRate		: entier
-			size			: entier
-			color			: indefini
+			allLevels		: liste de chaines de caractere
+            level           : liste de liste de chaine de caracteres
+            levelNumber     : entier
 
 
-type : Settings = struct
-			difficulty 		: liste
-			levelNumber		: entier
-			name 			: chaine
+type : Menu = struct
+            items           : liste de chaine de caracteres
+            cursor          : entier
+            selectedItem    : entier
 
-type : Stats = struct
-			timeLeft		: eniter
-			score 			: entier
-			highScores		: liste de tuples (chaine, entier)
 
-type : Coin = struct
-			numberLeft		: entier
-			position		: tuple (entier, entier)
-			

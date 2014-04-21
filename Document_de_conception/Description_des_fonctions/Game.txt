@@ -1,29 +1,103 @@
-\textbullet Game.\textbf{create(s)}
-\textbullet Game.\textbf{show(g)}
-\textbullet Game.\textbf{move(g)}
-\textbullet Game.\textbf{play(g)}
-\textbullet Game.\textbf{finishLevel(g)}
+\textbullet Game.\textbf{create(menu, level, win, state, name, difficulty)}
+\textbullet Game.\textbf{getMenu(game)}
+\textbullet Game.\textbf{getLevel(game)}
+\textbullet Game.\textbf{setLevel(level, game)}
+\textbullet Game.\textbf{getState(game)}
+\textbullet Game.\textbf{getWin(game)}
+\textbullet Game.\textbf{getName(game)}
+\textbullet Game.\textbf{setName(name, game)}
+\textbullet Game.\textbf{askName(game)}
+\textbullet Game.\textbf{getDifficulty(game)}
+\textbullet Game.\textbf{setDifficulty(difficulty, game)}
+\textbullet Game.\textbf{askDifficulty(game)}
 
-Game.\textbf{create(s)}->Game
+
+Game.\textbf{create(menu, level, win, state, name, difficulty)}->Game
         Description : crée une nouvelle partie
-        Parametres : 
-            s : Settings
+        Parametres :
+                menu        : Menu
+                level       : Level
+                win         : fenetre curses
+                state       : chaine de caractères
+                name        : chaine de caractères
+                difficulty  : entier
         Valeurs de retour : nouvelle partie en fonction des parmetres
 
-Game.\textbf{show(g)}->rien
-        Description : affiche le jeu
-        Parametres : 
-            g : Game
-        Valeurs de retour : aucune
 
-Game.\textbf{play(g)}->rien
-        Description : le spazz se déplace dans le niveau, quand il touche un jeton, un autre apparait, quand il touche un mur la partie est terminee
-        Parametres : 
-            g : Game
-        Valeurs de retour : aucune
+Game.\textbf{getMenu(game)}->menu
+        Description : Retourne le menu de la variable game
+        Parametres :
+                game : Game
+        Valeurs de retour : returnValue
 
-Game.\textbf{endGame(g)}->Game
-        Description : si le joueur perd ou qu'il gagne, le niveau est teminé
-        Parametres : 
-            g : Game
-        Valeurs de retour : le Game à la fin du niveau
+
+Game.\textbf{getLevel(game)}->Level
+        Description : retourne le level contenu dans le game
+        Parametres :
+                game : Game
+        Valeurs de retour : level
+
+
+Game.\textbf{setLevel(level, game)}->Game
+        Description : change le level contenu dans le game
+        Parametres :
+                level   : Level
+                game    : Game
+        Valeurs de retour : game
+
+
+Game.\textbf{getState()}->chaine de caractère
+        Description : retourne l'etat du jeu
+        Parametres :
+                game : Game
+        Valeurs de retour : variable state contenue dans la variable game
+
+
+Game.\textbf{getWin(game)}->Window
+        Description : retourne la fenètre curses du game
+        Parametres :
+                game : Game
+        Valeurs de retour : variable win contenue dans la variable game
+
+
+Game.\textbf{getName(game)}->chaine de caractères
+        Description : retourne le nom du joueur
+        Parametres :
+                game : Game
+        Valeurs de retour : variable name contenue dans la variable game
+
+
+Game.\textbf{setName(name, game)}->Game
+        Description : change le nom du joueur
+        Parametres :
+                name : chaine de caractères
+                game : Game
+        Valeurs de retour : Game
+
+
+Game.\textbf{askName(game)}->chaine de caractère
+        Description : demande le nom du joueur à l'utilisateur
+        Parametres :
+                game : Game
+        Valeurs de retour : chaine entrée par l'utilisateur
+
+
+Game.\textbf{getDifficulty(game)}->entier
+        Description : retourne la difficulté
+        Parametres :
+                game : Game
+        Valeurs de retour : variable difficulté de la varible game
+
+
+Game.\textbf{setDifficulty(difficulty, game)}->Game
+        Description : change la varialble difficulty dans le game
+        Parametres :
+                difficulty  : entier
+                game        : Game
+        Valeurs de retour : game
+
+Game.\textbf{askDifficulty()}->entier
+        Description : demande la difficulté à l'utilisateur
+        Parametres :
+                game : Game
+        Valeurs de retour : difficulté choisie par l'utilisateur

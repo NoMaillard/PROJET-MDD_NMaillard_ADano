@@ -1,4 +1,0 @@
-Settings.askSettings()
-    +-- Settings.askName()
-    +-- Settings.askDifficulty()
-    +-- Settings.askLevelNumber()
