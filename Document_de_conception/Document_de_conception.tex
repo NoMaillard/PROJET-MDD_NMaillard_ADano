@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{scrartcl}
 \usepackage[top=3.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -28,7 +28,7 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
 \center % Center everything on the page
- 
+
 %----------------------------------------------------------------------------------------
 %	HEADING SECTIONS
 %----------------------------------------------------------------------------------------
@@ -44,7 +44,7 @@
 \HRule \\[0.4cm]
 {\huge \bfseries Spazz}\\[0.4cm] % Title of your document
 \HRule \\[1.5cm]
- 
+
 \Large
 Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 
@@ -52,7 +52,7 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 {Date}\\[3cm] % Date, change the \today to a set date if you want to be precise
 
 {\large Version 1.0}
- 
+
 
 \vfill
 
@@ -74,11 +74,11 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 \subsection{Fonctionalités}
 
 \begin{enumerate}[label*= F\arabic*,font = \textbf]
-	\item : Choisir un pseudo
+	\item : Choisir un nom
 	\item : Choisir la difficulté
+    \item : Choisir le niveau
 	\item : Jouer un niveau
 	\begin{enumerate}[label*=.\arabic*,font = \textbf]
-		\item : Choisir le niveau
 		\item : Afficher le Jeu
 		\item : Changer de direction
 		\item : Ramasser un jeton
@@ -93,8 +93,8 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 
 \subsection{Prototype P1}
 
-Ce prototype porte sur la création et l'affichage du niveau.\\
-Mise en œuvre de fonctionnalités : F1, F2, F3.2, F3.2
+Ce prototype porte sur la création du jeu et la possibilité de changer les paramètres du jeu.\\
+Mise en œuvre de fonctionnalités : F1, F2, F3
 
 \section{Principe des solutions techniques}
 
@@ -145,16 +145,11 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 \subsection{Analyse descendante}
 
 \subsubsection{Arbre principal}
-    	
+
 \begin{alltt}
 \input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_principal.txt}
 \end{alltt}
 
-\subsubsection{Arbre réglages}
-
-\begin{alltt}
-\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_Settings.txt}
-\end{alltt}
 
 \subsubsection{Arbre affichage}
 
@@ -174,17 +169,19 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 \begin{alltt}
 	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Main.txt}
 \end{alltt}
+
 \newpage
+
 \subsection{Module Game.py}
 
 \begin{alltt}
 \input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Game.txt}
 \end{alltt}
-\newpage
-\subsection{Module Settings.py}
+
+\subsection{Module Menu.py}
 
 \begin{alltt}
-	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Settings.txt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Menu.txt}
 \end{alltt}
 
 \subsection{Module Level.py}
@@ -192,27 +189,70 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Level.txt}
 \end{alltt}
 
-\newpage
-\subsection{Module Coin.py}
-
-\begin{alltt}
-\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Coin.txt}
-\end{alltt}
-
 \section{Calendrier et suivi de développement}
+\subsection{Prototype 1}
+\subsubsection{fonctions à développer}
 \texttt{
 \begin{tabular}{|l|c|c|r|}
 \hline
-fonctions & codées & testées & commentaires \\
+\textsc{\textbf{fonctions}} & codées & testées & commentaires \\
 \hline
-	Settings.\textbf{askSettings} & Oui & Oui & 07/04 \\
+	Main.\textbf{init()} & Oui & Oui & 18/04 \\
 \hline
-	Settings.\textbf{askName} & Oui & Oui & 07/04\\
+	Main.\textbf{run()} & Oui & Oui & 18/04\\
 \hline
-	Settings.\textbf{askDifficulty} & Oui & Oui & 07/04 \\
-\hline 
-	Settings.\textbf{askLevelNumber} & Oui & Oui & 07/04\\
+	Main.\textbf{show()} & Oui & Oui & 18/04 \\
+\hline
+	Main.\textbf{interact()} & Oui & Oui & 18/04\\
+\hline
+    Main.\textbf{quit()} & Oui & Non & 18/04\\
+\hline
+    Game.\textbf{create()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getMenu()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getLevel()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{setLevel()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getState()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getWin()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getName()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{setName()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{askName()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{getDifficulty()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{setDifficulty()} & Oui & Oui & 18/04\\
+\hline
+    Game.\textbf{askDifficulty()} & Oui & Oui & 18/04\\
+\hline
+    Menu.\textbf{create()} & Oui & Oui & 18/04\\
+\hline
+    Menu.\textbf{show()} & Oui & Oui & 18/04\\
+\hline
+    Menu.\textbf{interact()} & Oui & Oui & 18/04\\
+\hline
+    Menu.\textbf{getNumberOfMenuItems()} & Oui & Oui & 18/04\\
+\hline
+    Menu.\textbf{quit()} & Oui & Non & 18/04\\
+\hline
+    Level.\textbf{create()} & Oui & Oui & 18/04\\
+\hline
+    Level.\textbf{getLevelNumber()} & Oui & Oui & 18/04\\
+\hline
+    Level.\textbf{setLevelNumber()} & Oui & Oui & 18/04\\
+\hline
+    Level.\textbf{askLevelNumber()} & Oui & Oui & 18/04\\
+\hline
+    Level.\textbf{getNumberOfLevels()} & Oui & Oui & 18/04\\
 \hline
 \end{tabular}
 }
-\end{document}  
+\subsubsection{autres}
+\texttt{levels.txt}
+\end{document}
