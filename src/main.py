@@ -1,64 +1,85 @@
 #!/usr/bin/python
-import Game,Level,Snake
+import curses
+import logging
+
+import Game
+import Level
+import Menu
+import Snake
+
 
 def init():
-	global win
-	curses.initscr()
-    win = curses.newwin(20,80,0,0)
+    global game
+    # on initialise la fenetre curses
+    curses.initscr()
+    win = curses.newwin(30, 80, 0, 0)
     curses.noecho()
     curses.curs_set(0)
-    win.border(0)
     win.nodelay(0)
-    
-	global game,level,snake,mainMenu
 
-	mainMenu = Menu.create('Change name','Change Difficulty','Select level','play')
-	difficultyMenu = Menu.create('Easy','Normal','Difficult')
-	game = Game.create()
-	level = Level.create()
-	snake = Snake.create()
+    logging.basicConfig(filename='snake.log', level=logging.INFO)
+    # creation du niveau
+    level = Level.create(0, 'levels.txt')
+    # creation du snake
+    snake = Snake.create(35, 15, 0, 2)
+
+    # creation du food
+    food = [10, 10]
+
+    # creation du menu
+    menu = Menu.create(
+        'Change name',
+        'Change Difficulty',
+        'Select level',
+        'play',
+        'quit Game'
+    )
+
+    # definition de l'etat du programme
+    state = 'menu'
+
+    # definition du nom du joueur
+    name = 'player1'
+
+    # definition de la difficulte
+    difficulty = 2
+
+    # creation de la variable de type game
+    game = Game.create(menu, level, snake, food, win, state, name, difficulty)
 
 
+def run(game):
+    while Game.getState(game) != 'quitProgram':
+        logging.info('%s', Game.getState(game))
+        show(game)
+        interact(game)
+    quitProgram()
+    return
 
 
-def run():
-	state = 'menu'
-	while True:
-		show(state)
-		interact(state)
-	return
+def show(game):
+    if Game.getState(game) == 'menu':
+        Menu.show(game)
+    elif Game.getState(game) == 'game':
+        Game.show(game)
+    return
 
 
-def show(state):
-	if state == 'menu':
-		Menu.show(mainMenu)
-		Menu.interact(mainMenu)
-		if mainMenu['selectedItem'] == 1:
-			Menu.show(difficultyMenu)
-			Menu.interact(difficultyMenu)
+def interact(game):
+    if Game.getState(game) == 'menu':
+        Menu.interact(game)
+    elif Game.getState(game) == 'game':
+        Game.interact(game)
+    elif Game.getState(game) == 'quitGame':
+        Game.quitGame(game)
+    return
 
-	elif state == 'game':
-		Game.show()
-	return
 
-def interact(state):
-	global state
-		if state == 'menu':
-		Menu.interact()
-	elif state == 'game':
-		Game.interact()
-	return
-	
+def quitProgram():
+    curses.echo()
+    curses.endwin()
+    return
 
-def quit(state):
-	if state == 'menu':
-		Menu.quit()
-	elif state == 'game':
-		Game.quit()
-		
-	return
-	
-#########################
+#
 init()
-run()
-quit()
+run(game)

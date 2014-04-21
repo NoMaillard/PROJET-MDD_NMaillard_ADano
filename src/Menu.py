@@ -1,8 +1,12 @@
 #!/usr/bin/python
-import curses
+import logging
+
+import Game
+import Level
 
 
 def create(*argv):
+    # cree un menu en fonction des arguments
     menuCursor = 0
     selectedItem = -1
     menuItems = []
@@ -10,56 +14,60 @@ def create(*argv):
     for i in argv:
         menuItems.append(i)
         j += 1
-    menu = {'items' : menuItems,'cursor' : menuCursor,'selectedItem' : selectedItem}
+    menu = {'items': menuItems,
+            'cursor': menuCursor,
+            'selectedItem': selectedItem}
     return menu
 
-def show(menu):
-    global win
+
+def show(game):
+    # affiche le menu
+    menu = Game.getMenu(game)
+    win = Game.getWin(game)
     win.erase()
-    for i in range(len(menu['items'])): 
+    for i in range(len(menu['items'])):
         if i == menu['cursor']:
-            win.addstr(10+i,20,"->"+str(menu['items'][i]))
+            win.addstr(10 + i, 20, "->" + str(menu['items'][i]))
         else:
-            win.addstr(10+i,22,str(menu['items'][i]))
+            win.addstr(10 + i, 22, str(menu['items'][i]))
+    win.addstr(2, 2, 'Name : ' + str(Game.getName(game)))
+    win.addstr(3, 2, 'Difficulty : ' + str(Game.getDifficulty(game)))
+    win.addstr(4, 2, 'Level : ' +
+               str(Level.getLevelNumber(Game.getLevel(game))))
     return
 
-def interact(menu):
-    global win
-    menu['selectedItem'] = -1
 
+def interact(game):
+    # interaction entre l'utilisateur et le menu
+    menu = Game.getMenu(game)
+    win = Game.getWin(game)
+    # deplacement du curseur
+    menu['selectedItem'] = -1
     key = win.getch()
     if key == ord('z'):
         if menu['cursor'] != 0:
             menu['cursor'] -= 1
     if key == ord('s'):
-        if menu['cursor'] != len(menu['items'])-1:
+        if menu['cursor'] != len(menu['items']) - 1:
             menu['cursor'] += 1
     if key == ord('e'):
         menu['selectedItem'] = menu['cursor']
-    return menu
-
-def quit():
-    global state
-    state = 'game'
+    # action a effectuer en fonction de l'item selectionne
+    if menu['selectedItem'] == 0:
+        game = Game.setName(Game.askName(game), game)
+    if menu['selectedItem'] == 1:
+        game = Game.setDifficulty(Game.askDifficulty(game), game)
+    if menu['selectedItem'] == 2:
+        newLevel = Level.create(Level.askLevelNumber(game), 'levels.txt')
+        logging.info(str(newLevel))
+        game = Game.setLevel(newLevel, game)
+    if menu['selectedItem'] == 3:
+        Game.setState('game', game)
+    if menu['selectedItem'] == 4:
+        Game.setState('quitProgram', game)
     return
 
 
-if __name__ == '__main__':
-    global win
-    curses.initscr()
-    win = curses.newwin(20,80,0,0)
-    curses.noecho()
-    curses.curs_set(0)
-    win.border(0)
-    win.nodelay(0)
-    menu = create('First','second','third')
-    submenu = create('zelfjez','zaefef')
-    while True:
-        show(menu)
-        interact(menu)
-        if menu['selectedItem'] == 0:
-            while True:
-                show(submenu)
-                interact(submenu)
-                if submenu['selectedItem'] == 1:
-                    break
+def getNumberOfMenuItems(menu):
+    # retourne le nombre d'items dans le menuce
+    return len(menu['items'])
