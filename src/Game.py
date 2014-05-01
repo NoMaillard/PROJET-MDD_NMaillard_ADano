@@ -6,7 +6,7 @@ import Level
 import Snake
 
 
-def create(menu, level, snake, food, win, state, name, difficulty):
+def create(menu, level, snake, food, win, state, name, difficulty, score):
     return {
         'menu': menu,
         'level': level,
@@ -15,7 +15,8 @@ def create(menu, level, snake, food, win, state, name, difficulty):
         'win': win,
         'state': state,
         'name': name,
-        'difficulty': difficulty}
+        'difficulty': difficulty,
+        'score': score}
 
 
 def show(game):
@@ -23,10 +24,12 @@ def show(game):
     food = getFood(game)
     level = getLevel(game)
     snake = getSnake(game)
+    score = getScore(game)
     win.erase()
     Level.show(level, win)
     Snake.show(snake, win)
-    win.addstr(food[1], food[0], 'X')
+    showFood(food, win)
+    showScore(score, win)
     return
 
 
@@ -34,21 +37,29 @@ def interact(game):
     snake = getSnake(game)
     food = getFood(game)
     win = getWin(game)
+    score = getScore(game)
     key = win.getch()
-    win.timeout(200)
-    if foodEaten(snake, food):
-        game = setNewFood(game)
-    newSnake = Snake.computeNextPos(key, snake, food, win)
-    if newSnake == 'quitProgram':
-        setState('quitProgram', game)
-    else:
+    difficulty = game['difficulty']
+    win.timeout(200-30*difficulty)
+    try:
+        logging.info(str(key))
+        newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
+    except ValueError:
+        logging.warning("you fail !")
+        key = -1
+        game = setSnake(Snake.reset(), game)
+        game = setScore(0, game)
+        game = setState('menu', game)
+
+    if foodEaten(snake, food):
+        game = setScore(score + 1, game)
+        game = setNewFood(game)
     return
 
 
 def quitGame(status, game):
-    if status == 'quitProgram':
-        setState(status, game)
+    setState(status, game)
     return
 
 
@@ -77,6 +88,10 @@ def setSnake(snake, game):
     return game
 
 
+def showFood(food, win):
+    win.addstr(food[1], food[0], 'X')
+
+
 def getFood(game):
     return game['food']
 
@@ -88,14 +103,17 @@ def setNewFood(game):
     newFoodX = random.randint(1, Level.getWidth(level))
     newFoodY = random.randint(1, Level.getHeight(level))
     while win.inch(newFoodY, newFoodY) != ord(' '):
+        logging.warning('food not allowed in tha place')
         newFoodX = random.randint(1, Level.getWidth(level))
         newFoodY = random.randint(1, Level.getHeight(level))
     game['food'] = [newFoodX, newFoodY]
+    logging.info('new food coords : ' + str([newFoodX, newFoodY]))
     return game
 
 
 def foodEaten(snake, food):
     if food[0] == Snake.getHeadX(snake) and food[1] == Snake.getHeadY(snake):
+        logging.info('some food has been eaten')
         return True
     else:
         return False
@@ -108,6 +126,7 @@ def getState(game):
 
 def setState(state, game):
     game['state'] = state
+    logging.info('state set to : ' + state)
     return game
 
 
@@ -124,12 +143,14 @@ def getName(game):
 def setName(name, game):
     # change le nom du joueur
     game['name'] = name
+    logging.info('Name set to : ' + name)
     return game
 
 
 def askName(game):
     # demande a l'utilisateur le nom du joueur
     win = game['win']
+    win.nodelay(0)
     win.erase()
     curses.echo()
     win.addstr(10, 20, "What's your name ?")
@@ -146,12 +167,14 @@ def getDifficulty(game):
 def setDifficulty(difficulty, game):
     # change la difficulte
     game['difficulty'] = difficulty
+    logging.info('difficulty set to : ' + str(difficulty))
     return game
 
 
 def askDifficulty(game):
     # demande la difficulte a l'utilisateur
     win = game['win']
+    win.nodelay(0)
     win.erase()
     curses.echo()
     difficulty = 0
@@ -167,3 +190,16 @@ def askDifficulty(game):
             win.addstr(13, 20, "retry !")
     curses.noecho()
     return difficulty
+
+
+def getScore(game):
+    return game['score']
+
+
+def setScore(score, game):
+    game['score'] = score
+    return game
+
+
+def showScore(score, win):
+    win.addstr(22, 4, str(score))
