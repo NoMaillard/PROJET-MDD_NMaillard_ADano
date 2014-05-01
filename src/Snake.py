@@ -34,33 +34,33 @@ def computeNextPos(key, snake, food, win):
     headFacing = snake['headFacing']
     if key == ord('z') and not headFacing == 2:
         headFacing = 0
-    if key == ord('d') and not headFacing == 3:
+    elif key == ord('d') and not headFacing == 3:
         headFacing = 1
-    if key == ord('s') and not headFacing == 0:
+    elif key == ord('s') and not headFacing == 0:
         headFacing = 2
-    if key == ord('q') and not headFacing == 1:
+    elif key == ord('q') and not headFacing == 1:
         headFacing = 3
 
     if headFacing == 0:
         newHeadX = snakeBody[0][0]
         newHeadY = snakeBody[0][1] - 1
-    if headFacing == 1:
+    elif headFacing == 1:
         newHeadX = snakeBody[0][0] + 1
         newHeadY = snakeBody[0][1]
-    if headFacing == 2:
+    elif headFacing == 2:
         newHeadX = snakeBody[0][0]
         newHeadY = snakeBody[0][1] + 1
-    if headFacing == 3:
+    elif headFacing == 3:
         newHeadX = snakeBody[0][0] - 1
         newHeadY = snakeBody[0][1]
 
     newHeadplace = win.inch(newHeadY, newHeadX)
     if newHeadplace != ord(' ') and newHeadplace != ord('X'):
-        return 'quitProgram'
+        raise ValueError()
+
     snakeBody.insert(0, [newHeadX, newHeadY])
     if not food == snakeBody[0]:
         snakeBody.pop()
-    logging.info(str(snakeBody))
     snake['headFacing'] = headFacing
     snake['snakeBody'] = snakeBody
     return snake
@@ -74,3 +74,7 @@ def getHeadX(snake):
 def getHeadY(snake):
     snakeBody = snake['snakeBody']
     return snakeBody[0][1]
+
+
+def reset():
+    return create(35, 15, 1, 2)
