@@ -5,7 +5,7 @@ import logging
 import Level
 import Snake
 
-
+n
 def create(menu, level, snake, food, win, state, name, difficulty, score):
     return {
         'menu': menu,
