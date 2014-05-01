@@ -45,6 +45,7 @@ def askLevelNumber(game):
     # demande le numero du niveau a l'utilsateur
     win = Game.getWin(game)
     level = Game.getLevel(game)
+    win.nodelay(0)
     win.erase()
     curses.echo()
     levelNumber = 0
