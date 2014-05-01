@@ -7,7 +7,7 @@ import Level
 import Menu
 import Snake
 
-
+ l
 def init():
     global game
     # on initialise la fenetre curses
