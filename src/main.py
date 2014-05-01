@@ -21,7 +21,7 @@ def init():
     # creation du niveau
     level = Level.create(0, 'levels.txt')
     # creation du snake
-    snake = Snake.create(35, 15, 0, 2)
+    snake = Snake.create(35, 15, 1, 2)
 
     # creation du food
     food = [10, 10]
@@ -44,13 +44,14 @@ def init():
     # definition de la difficulte
     difficulty = 2
 
+    score = 0
     # creation de la variable de type game
-    game = Game.create(menu, level, snake, food, win, state, name, difficulty)
+    game = Game.create(
+        menu, level, snake, food, win, state, name, difficulty, score)
 
 
 def run(game):
     while Game.getState(game) != 'quitProgram':
-        logging.info('%s', Game.getState(game))
         show(game)
         interact(game)
     quitProgram()
