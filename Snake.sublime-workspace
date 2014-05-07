@@ -1,0 +1,977 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"show",
+				"showScore"
+			],
+			[
+				"getS",
+				"getScore"
+			],
+			[
+				"st",
+				"status	param"
+			],
+			[
+				"qui",
+				"quitToMenu"
+			],
+			[
+				"v",
+				"ValueError	class"
+			],
+			[
+				"try",
+				"try	keyword"
+			],
+			[
+				"warn",
+				"warning	function"
+			],
+			[
+				"new",
+				"newFoodY	statement"
+			],
+			[
+				"di",
+				"difficulty	statement"
+			],
+			[
+				"Di",
+				"difficulty	statement"
+			],
+			[
+				"ne",
+				"newFoodY"
+			],
+			[
+				"game",
+				"game"
+			],
+			[
+				"foo",
+				"food	param"
+			],
+			[
+				"setS",
+				"setState	function"
+			],
+			[
+				"snake",
+				"snake	param"
+			],
+			[
+				"sn",
+				"snakeBody	statement"
+			],
+			[
+				"lo",
+				"logging	import"
+			],
+			[
+				"he",
+				"headFacing	statement"
+			],
+			[
+				"sna",
+				"snake	param"
+			],
+			[
+				"snakeB",
+				"snakeBody	statement"
+			],
+			[
+				"len",
+				"length	param"
+			],
+			[
+				"head",
+				"headFacing"
+			],
+			[
+				"i",
+				"i	forflow"
+			],
+			[
+				"hea",
+				"headFacing	param"
+			],
+			[
+				"le",
+				"length	param"
+			],
+			[
+				"get",
+				"getState"
+			],
+			[
+				"ce",
+				"create"
+			],
+			[
+				"ret",
+				"return	keyword"
+			],
+			[
+				"quitG",
+				"quitGame"
+			],
+			[
+				"quitM",
+				"quitMenu"
+			],
+			[
+				"me",
+				"menu	statement"
+			],
+			[
+				"level",
+				"levelNumber	statement"
+			],
+			[
+				"tr",
+				"try	Try/Except"
+			],
+			[
+				"lev",
+				"levelNumber"
+			],
+			[
+				"G",
+				"Game	import"
+			],
+			[
+				"f",
+				"false"
+			],
+			[
+				"no",
+				"noecho	function"
+			],
+			[
+				"ge",
+				"getNumberOfMenuItems"
+			],
+			[
+				"Men",
+				"getNumberOfMenuItems"
+			],
+			[
+				"def",
+				"def	Function"
+			],
+			[
+				"s",
+				"state	param"
+			],
+			[
+				"men",
+				"menu"
+			],
+			[
+				"menu",
+				"menuType"
+			],
+			[
+				"name",
+				"nameMenu"
+			],
+			[
+				"if",
+				"if	If Condition"
+			],
+			[
+				"m",
+				"mainMenu"
+			],
+			[
+				"c",
+				"create"
+			],
+			[
+				"cus",
+				"cursor"
+			],
+			[
+				"play",
+				"playerName"
+			],
+			[
+				"ex",
+				"except	keyword"
+			],
+			[
+				"el",
+				"elif	elif"
+			],
+			[
+				"diffic",
+				"difficulty"
+			],
+			[
+				"askSett",
+				"askSesttings"
+			],
+			[
+				"F",
+				"False	keyword"
+			],
+			[
+				"\\no",
+				"\\noindent"
+			],
+			[
+				"Lanc",
+				"Lancer_jeu"
+			],
+			[
+				"S",
+				"Style"
+			],
+			[
+				"o",
+				"omega"
+			],
+			[
+				"M",
+				"module_dB"
+			],
+			[
+				"fo",
+				"fonctionTransfert"
+			],
+			[
+				"ar",
+				"argument"
+			],
+			[
+				"a",
+				"argument"
+			],
+			[
+				"color",
+				"Colorsublime"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/User/MDD.sublime-build",
+	"command_palette":
+	{
+		"height": 52.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"sspl",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"dis",
+				"Package Control: Disable Package"
+			],
+			[
+				"enabl",
+				"Package Control: Enable Package"
+			],
+			[
+				"emmet",
+				"Emmet: Decrement Number by 10"
+			],
+			[
+				"ena",
+				"Package Control: Enable Package"
+			],
+			[
+				"theme",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"colo",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"r",
+				"Package Control: Remove Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"anaconda",
+				"Anaconda: Autoformat PEP8 Errors"
+			],
+			[
+				"",
+				"Anaconda: Set Python interpreter"
+			],
+			[
+				"sssh",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"disa",
+				"Package Control: Disable Package"
+			],
+			[
+				"packa",
+				"Package Control: Enable Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: XML Processing Instruction"
+			],
+			[
+				"sspy",
+				"Set Syntax: Python"
+			],
+			[
+				"snipp",
+				"Snippet: sublime.run_command"
+			],
+			[
+				"ssp",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"pac",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"pack",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"consol",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"repl p",
+				"SublimeREPL: Python"
+			],
+			[
+				"run",
+				"SublimeREPL: Python - RUN current file"
+			],
+			[
+				"pand",
+				"Pandoc"
+			],
+			[
+				"pan",
+				"Pandoc"
+			],
+			[
+				"pandoc",
+				"Pandoc"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"panda",
+				"Pandoc: Render Markdown to PDF"
+			],
+			[
+				"ssx",
+				"Set Syntax: XML"
+			],
+			[
+				"int",
+				"Package Control: Install Package"
+			],
+			[
+				"git",
+				"Git: Toggle Annotations"
+			],
+			[
+				"git ",
+				"Git: Status"
+			],
+			[
+				"git i",
+				"Gitignore: New gitignore"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"open",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"open ",
+				"PackageResourceViewer: Open Resource"
+			],
+			[
+				"prv",
+				"PackageResourceViewer: Extract Package"
+			],
+			[
+				"linter",
+				"SublimeLinter: Report (Open Files)"
+			],
+			[
+				"linte",
+				"SublimeLinter: Choose Gutter Theme"
+			],
+			[
+				"togg",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"ublimeli",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"chk",
+				"SublimeLinter: Choose Mark Style"
+			],
+			[
+				"sublimel",
+				"SublimeLinter: Enable Debug Mode"
+			],
+			[
+				"Snippet: arti",
+				"Snippet: LaTeX Ariticle creation"
+			],
+			[
+				"setting",
+				"Preferences: Settings - User"
+			],
+			[
+				"comm",
+				"Git: Commit"
+			],
+			[
+				"git de",
+				"Git: Reset (hard) HEAD"
+			],
+			[
+				"git ch",
+				"Git: Checkout Tag"
+			],
+			[
+				"ssl",
+				"Set Syntax: LaTeXSQ"
+			],
+			[
+				"relp",
+				"SublimeREPL: CoffeeScript"
+			],
+			[
+				"repl",
+				"SublimeREPL: Shell"
+			],
+			[
+				"lint",
+				"SublimeREPL: Python - Sublime Text Console"
+			],
+			[
+				"gfm",
+				"Markdown Preview: Github Flavored Markdown: Preview in Browser"
+			],
+			[
+				"ss m",
+				"Set Syntax: Markdown GFM"
+			],
+			[
+				"emm",
+				"Emmet: Match Pair (inward)"
+			],
+			[
+				"ssh",
+				"Set Syntax: HTML"
+			],
+			[
+				"ss",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"ssm",
+				"Set Syntax: MATLAB"
+			],
+			[
+				"oct",
+				"SublimeREPL: Octave"
+			],
+			[
+				"floo",
+				"Floobits - Share Directory (Private)"
+			],
+			[
+				"remov",
+				"Package Control: Remove Package"
+			],
+			[
+				"pc ",
+				"Package Control: Remove Package"
+			],
+			[
+				"pc",
+				"Package Control: Disable Package"
+			],
+			[
+				"Snippet: Bibtex mi",
+				"Snippet: BibTeX Misc"
+			],
+			[
+				"Snippet: Bibtex ",
+				"Snippet: BibTeX Misc"
+			],
+			[
+				"latex",
+				"LaTeXing: Documentation"
+			],
+			[
+				"day",
+				"Markdown Preview: Github Flavored Markdown: Copy to Clipboard"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"c",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"co",
+				"Colorsublime: Install Theme"
+			],
+			[
+				"Snippet: Bibtex m",
+				"Snippet: BibTeX Misc"
+			],
+			[
+				"mar",
+				"Set Syntax: Markdown"
+			],
+			[
+				"pci",
+				"Package Control: Install Package"
+			],
+			[
+				"pc in",
+				"Package Control: Install Package"
+			],
+			[
+				"intall",
+				"Package Control: Install Package"
+			],
+			[
+				"op",
+				"View: Toggle Open Files in Side Bar"
+			]
+		],
+		"width": 507.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/private/var/folders/15/50x16lt114j9l28m5ry2cwq00000gn/T/wzQL.M5RmD8/README_Sea of Flame II.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/Score.py",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Anaconda.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/HighScores.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/HihgScores.xml",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/Settings.py",
+		"/Users/Noe/snake15l.py",
+		"/Users/Noe/Downloads/snake2615l/snake15l.py",
+		"/Users/Noe/Downloads/snake2615l/snake26l.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/levels.txt",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/MDD.sublime-build",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/script.sh",
+		"/Users/Noe/Desktop/pip.py",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/MacTerminal/Default.sublime-keymap",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/MacTerminal.sublime-settings",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/Game.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/Menu.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/Level.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/src/keycode.py",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/SideBarEnhancements/Open With/Side Bar.sublime-menu",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Game.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_Settings.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Settings.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Main.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Menu.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Document_de_conception.tex",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Level.txt",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/Wrap in environment.sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/LaTeX.sublime-commands",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_Menu.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_interaction.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_principal.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_affichage.txt",
+		"/Users/Noe/Documents/Cours/S2/SHI/Notes.md",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Pandoc.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/SideBarGit/SideBarGit.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/SideBarGit.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Description-MDD.sublime-snippet",
+		"/Users/Noe/Documents/Cours/S2/MDD/.git/COMMIT_EDITMSG",
+		"/Users/Noe/Documents/Cours/S2/MDD/.gitignore",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX/subsubsection-..-(ssub).sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX/subsection-..-(sub).sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX/section-..-(section).sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX/Section.sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX Snippets/section.sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX Snippets/subsection.sublime-snippet",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeX Snippets/subsubsection.sublime-snippet",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document de conception/Analyse descendante/Arbres.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document de conception/Document_de_conception.tex",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse descendante/Types de données.txt",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document de conception/Analyse descendante/Types_de_donnees.txt",
+		"/Users/Noe/Documents/Cours/S1/Electronique/Projet/Compte-rendu/Compte-rendu_main.tex",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/Users/Noe/Documents/Cours/S2/MDD/Cahier des charges.tex",
+		"/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception.tex",
+		"/Users/Noe/Desktop/popcorn-app/js/vendor/video-js/video.js",
+		"/Users/Noe/Library/Application Support/Popcorn-Time/Local Storage/app_host_0.localstorage-journal",
+		"/Users/Noe/Library/Application Support/Popcorn-Time/Cache/index-dir/the-real-index",
+		"/Users/Noe/Desktop/Octave.m",
+		"/Users/Noe/Documents/Cours/S2/ELEC/Diagramme_bode.m",
+		"/Users/Noe/Desktop/mzlrf.html",
+		"/Users/Noe/octave/control-2.6.2/bode.m",
+		"/Users/Noe/Desktop/octave-workspace",
+		"/Users/Noe/Documents/Cours/S2/SHI/.flooignore",
+		"/Users/Noe/Documents/Cours/S2/SHI/untitled.sublime-project",
+		"/Users/Noe/floobits/welcome.md",
+		"/Users/Noe/.floorc",
+		"/Users/Noe/Documents/Cours/S2/SHI/Fuseaux_Horaires.sublime-project",
+		"/Users/Noe/Documents/Cours/S2/ANA/EX5.tex",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXTools/Default (OSX).sublime-keymap",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/Default/Default (OSX).sublime-keymap",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXSQ/README.md",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXing/LaTeX.sublime-build",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/LaTeXing/LaTeXing.sublime-settings",
+		"/System/Library/CoreServices/Finder.app/Contents/Resources/English.lproj/InfoPlist.strings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/MarkdownEditing/Markdown (Standard).sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/SmartMarkdown.sublime-settings",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/SmartMarkdown/SmartMarkdown.sublime-settings",
+		"/Users/Noe/Documents/Cours/S2/SHI/Bibliographie.tex",
+		"/Users/Noe/Desktop/Bla.md",
+		"/Users/Noe/Documents/Cours/S2/MDD/Exemple_Jeu/animat.py",
+		"/Applications/Wine.sh",
+		"/Users/Noe/Documents/Cours/S2/EDT.ics",
+		"/Users/Noe/Documents/Cours/S2/EDT",
+		"/Users/Noe/Documents/Cours/S2/SHI/Bibliographie.bib",
+		"/Applications/#!:bin:bash.sh",
+		"/Users/Noe/.wine/drive_c/Program Files/LTC/LTspiceIV/scad3.exe",
+		"/Users/Noe/Desktop/test.py",
+		"/Users/Noe/Documents/Cours/S2/MDD/Exemple_Jeu/LEVEL_1.txt",
+		"/Users/Noe/Documents/Cours/S1/S2/MDD/Exemple_Jeu/image.txt",
+		"/Users/Noe/Library/Application Support/Sublime Text 3/Packages/User/Py.sublime-build",
+		"/Users/Noe/Desktop/Test/BlockIronChest.java",
+		"/Users/Noe/Documents/Cours/S1/S2/MDD/Exemple_Jeu/background.py",
+		"/Users/Noe/Documents/Scripts/Toggle_Proxy.sh",
+		"/Volumes/Noé's iPod/iPod_Control/Device/Preferences"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"headFacing",
+			"if",
+			"quitToMenu",
+			"difficulty",
+			"snakeBody",
+			"food",
+			"logging",
+			"food",
+			"levle",
+			"newHeadX",
+			"headFacing",
+			"logging",
+			"snake",
+			"[i]",
+			"game",
+			"level",
+			"game",
+			"quitGame",
+			"startGame",
+			"quitMenu",
+			"instruction",
+			"getNumberOfLevels",
+			";",
+			"'O'",
+			"O",
+			"current",
+			"map",
+			"win",
+			"pass",
+			"getNumberOfMenuItems",
+			"pass",
+			"state",
+			"win",
+			"state",
+			"pass",
+			"mainMenu",
+			"menu",
+			"mainMenu",
+			"menuType",
+			"mainMenu",
+			"levelMenu",
+			"mainMenu",
+			"nameMenu",
+			"difficultyMenu",
+			"selection",
+			"mainMenu",
+			"state",
+			"pass",
+			"difficultyMenu",
+			"()\n",
+			"return",
+			"state",
+			"pass",
+			"niveau",
+			"level",
+			"Level",
+			"state",
+			"'):\n",
+			"back",
+			"Facile",
+			"pass",
+			"cursor",
+			"zaefef",
+			"cursor",
+			"pass",
+			"interact",
+			"show",
+			"menu",
+			"etat",
+			"game",
+			"numberOfLevels",
+			"setLevelNumber",
+			"menuWin",
+			"launch",
+			"menuWin",
+			"settings",
+			"win",
+			"settings",
+			"askLevelNumber",
+			"settings",
+			"show",
+			"settings",
+			"difficulty",
+			"levelNumber",
+			"difficulty",
+			"name",
+			"settings",
+			"cbreak",
+			"difficulty",
+			"name",
+			"menuItem",
+			"win",
+			"clear",
+			"carte",
+			"cartes",
+			"splite",
+			"maps",
+			"allMaps",
+			"mapNumber",
+			"border",
+			"clear",
+			"pass",
+			"levelNumber",
+			"win",
+			"numberOfLevels",
+			"True",
+			"pass",
+			"SETTINGS",
+			"levelNumber",
+			"name",
+			"difficulty",
+			"prompt",
+			"pseudo",
+			"Settings",
+			"game",
+			"level",
+			"settings",
+			"game",
+			"settings",
+			"returnValue",
+			"Parame",
+			"rien",
+			"interact",
+			"init",
+			"quit",
+			"Menu",
+			"Arbre_Menu",
+			"init"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"g",
+			"#",
+			"■",
+			"\\u25A0"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 177.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 112.0
+	},
+	"output.markdown":
+	{
+		"height": 100.0
+	},
+	"project": "Snake.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"ins",
+				"~/Documents/Cours/S2/SHI/untitled.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 253.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+		"max_columns": 3
+	}
+}
