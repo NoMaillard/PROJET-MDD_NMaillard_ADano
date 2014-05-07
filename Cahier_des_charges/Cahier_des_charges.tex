@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{scrartcl}
 \usepackage[top=3.5cm, bottom=2.5cm, left=3cm, right=3cm]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -46,7 +46,7 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
 
 \center % Center everything on the page
- 
+
 %----------------------------------------------------------------------------------------
 %	HEADING SECTIONS
 %----------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@
 \HRule \\[0.4cm]
 {\huge \bfseries Spazz}\\[0.4cm] % Title of your document
 \HRule \\[1.5cm]
- 
+
 \Large
 Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 
@@ -70,7 +70,7 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 {\large 27 mars 2014}\\[3cm]
 
 {\large Version 1.0}
- 
+
 
 \vfill
 
@@ -83,14 +83,14 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 \subsection{Description générale}
 
 
-Dans le cadre du cours de MDD, nous avons eu l'idée de créer un jeu vidéo mélangeant le concept du Snake et celui de jeu par niveau, à la manière de Mario.
+Dans le cadre du cours de MDD, nous avons eu l'idée de créer un jeu vidéo mélangeant le concept du Snake et celui de jeu par niveau.
 
 \section{Expression du besoin}
 
 \subsection{Règles du jeu}
 \begin{itemize}[label = $\bullet$]
 	\item l'utilisateur déplace une entité nommée Spazz qui doit se rendre à la fin du niveau avant la fin du temps imparti
-	\item Avant de pouvoir terminer un niveau, Spazz doit ramasser un nombre de jetons
+	\item Avant de pouvoir terminer un niveau, Spazz doit ramasser un nombre prédéfini de jetons
 	\item Les jetons peuvent prendre différentes valeurs
 	\item À chaque fois que Spazz ramasse un jeton, il grandit en taille
 	\item À la fin d'un niveau, le nombre de points est la somme du temps restant au compteur et des points des jetons ramassés
@@ -101,20 +101,24 @@ Le but du jeu est de terminer tous les niveaux.
 \subsection{L'interface}
 
 \subsubsection{Visuel}
-
-Pendant une partie l'utilisateur voit le niveau en cours avec Spazz qui se déplace, au dessus il y a une banderole qui affiche le score total, le temps restant et les nombre de jetons restants.
+Dans le niveau, l'utilisateur voit les différents items du menu principal et une flèche qui indique quel item est sélectionné.
+Pendant une partie l'utilisateur voit le niveau en cours avec Spazz qui se déplace en fonction des touches appuyées, en dessous il y a une banderole qui affiche le score total, le temps restant et les nombre de jetons restants.
 
 \subsubsection{Interaction}
-
-L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des touches directionnelles. Ces touches changent la direction dans laquelle Spazz se dirige.
+Dans le menu, lorsqu'il y a plusieurs items, l'utilisateur navigue à l'aide des touches Z et S puis confirme par la touche E, lorsque l'utilisateur entre du texte, il confirme avec la touche entrée.
+Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S et D. Ces touches changent la direction dans laquelle Spazz se dirige.
 
 
 \subsection{Manuel Utilisateur}
 
 \begin{description}
-	\item [Lancer le Jeu : ] \texttt{\$python Spazz}
-	\item [Choisir le pseudo : ] entrer le pseudo confirmer avec la touche entrée.
-	\item [Choisir la difficulté : ] entrer la difficulté choisie
+    \item [Lancer le Jeu : ] \texttt{\$python Spazz}
+	\item [Choisir le nom : ] dans le menu, sélectionner l'item "Change name", entrer le nom choisi et confirmer.
+    \item [Choisir la difficulté : ] dans le menu, sélectionner l'item "Change Difficulty", et entrer 1, 2 ou 3 en fonction de la difficulté désirée.
+    \item [Choisir le niveau : ] dans le menu, sélectionner l'item "Select level", entrer le numéro du niveau désiré puis confirmer.
+    \item [Jouer le niveau : ] dans le menu, sélectionner l'item "play".
+    \item [Quitter le Jeu : ] dans le menu, sélectionner l'item "quit game".
+    \item [Diriger le Spazz : ] dans le jeu, appuyer sur les touches Z, Q, S, ou D pour changer la direction dans laquelle le Spazz se dirige
 \end{description}
 
 \subsection{Contraintes techniques}
@@ -131,11 +135,11 @@ L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des 
 \textbf{S0 : Scénario du menu}\\[.5cm]
 \begin{tikzpicture}[->,>=stealth']
 
-	 \node[scenario] (Lancer) 
+	 \node[scenario] (Lancer)
 		{
 			Lancer le Jeu
 		};
-	  
+
 	 \node[action,
 	 	below of=Lancer,
 	 	xshift = 1.5 cm,
@@ -145,13 +149,13 @@ L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des 
 		{
 			Choisir un pseudo
 		};
-		 
+
 	 \node[action,
 		right of=Pseudo,
 		yshift = 2cm,
 		node distance=3.5cm
 		]
-		(Difficult) 
+		(Difficulty)
 		{
 		 	Choisir la difficulté
 		};
@@ -160,36 +164,46 @@ L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des 
 		left of=Lancer,
 		node distance=3.5cm,
 		]
-		(Niveau) 
+		(Niveau)
 		{
 			S1 : Jouer un niveau
 		};
 
+    \node[action,
+        above of = Difficulty,
+        node distance = 2.5cm,
+        ]
+        (Choose)
+        {
+            Choisir le niveau
+        };
+
+    \node[action,
+        above of = Lancer,
+        node distance = 2.5cm,
+        ]
+        (Quit)
+        {
+            Quitter le Jeu
+        };
+
 	 \path 	(Lancer)	edge[bend left = 10] (Pseudo)
-	 		(Lancer)	edge[bend left = 10] (Difficult)
-	 		(Lancer)	edge[bend right] (Niveau);
+	 		(Lancer)	edge[bend left = 10] (Difficulty)
+	 		(Lancer)	edge[bend right] (Niveau)
+            (Lancer)    edge[bend left] (Choose)
+            (Lancer)    edge[bend left] (Quit);
 \end{tikzpicture}
 
 \noindent
 \textbf{S1 : Jouer un niveau} \\[.5cm]
 
 \begin{tikzpicture}[->,>=stealth']
-	
+
 	\node[scenario,
 		text width = 3cm]
-		(Niveau) 
+		(Niveau)
 		{
 			S1 : Jouer un niveau
-		};
-
-	\node[action,
-		right of = Niveau,
-		xshift = 1cm,
-		node distance = 3.5cm,
-		]
-		(Choix)
-		{
-			Choisir le niveau
 		};
 
 	\node[action,
@@ -235,46 +249,42 @@ L'utilisateur agit sur Spazz à l'aide l'aide des touches Z , Q , S et D ou des 
 			Finir le niveau
 		};
 
-	\node[action,
+	\node[scenario,
 		below of = Finir,
 		node distance = 4cm,
 		text width = 3cm
 		]
-		(Meilleurs)
+		(Menu)
 		{
-			Afficher high scores
+			Retourner au menu
 		};
 
 	\path 	(Niveau)	edge[bend left = 10] (Finir)
-			(Niveau)	edge[bend right = 20] (Choix)
 	 		(Niveau)	edge[bend left = 20] (Jeton)
 	 		(Niveau)	edge[bend right = 20] (Direction)
 	 		(Niveau)	edge[bend right = 5](Afficher)
-	 		(Finir) 	edge[bend right = 30](Meilleurs);
+	 		(Finir) 	edge[bend right = 30](Menu);
 \end{tikzpicture}
 
 
 \newpage
 \section{Analyse du besoin}
-	
+
 \subsection{Fonctionalités}
 
 \begin{enumerate}[label*= F\arabic*,font = \textbf]
 	\item : Choisir un pseudo
 	\item : Choisir la difficulté
+    \item : Choisir le niveau
 	\item : Jouer un niveau
-	\begin{enumerate}[label*=.\arabic*,font = \textbf]
-		\item : Choisir le niveau
+    \begin{enumerate}[label*=.\arabic*,font = \textbf]
 		\item : Afficher le Jeu
 		\item : Changer de direction
 		\item : Ramasser un jeton
 		\item : Finir le niveau
-		\begin{enumerate}[label*=.\arabic*,font = \textbf]
-			\item : Afficher résultat
-			\item : Afficher les meilleurs scores
-			\item : Quitter le jeu
-		\end{enumerate}
-	\end{enumerate}
+    \end{enumerate}
+	\item : Afficher les meilleurs scores
+	\item : Quitter le jeu
 \end{enumerate}
 \section{Critères de validité et de qualité}
 
@@ -292,19 +302,19 @@ La validation du logiciel sera validée de la manière suivante :\\
 
 Différent critères permettront d'évaluer la qualité du jeu:\\
 \begin{itemize}[label = $\bullet$]
-	\item La jouabilité:L'interface devra être suffisamment ergonomique pour permettre au joueur de jouer un niveau sans difficultés techniques (Lenteur, bugs).
+	\item La jouabilité : L'interface devra être suffisamment ergonomique pour permettre au joueur de jouer un niveau sans difficultés techniques (Lenteur, bugs).
 	\item La robustesse.
 	\item Le respect de méthodes de codage données en cours de MDD.
 \end{itemize}
 
-\section{Livrables} 
+\section{Livrables}
 
 \subsection{Echéancier}
 
 \noindent
 Avant la 3\textsuperscript{ème} UC : Prototype P1 \\
 Avant la 5\textsuperscript{ème} UC : Prototype P2 \\
-Avant la Dernière UC: Version Finale 
+Avant la Dernière UC: Version Finale
 \subsection{Description des livrables}
 
 \begin{description}
