@@ -16,7 +16,8 @@ def create(menu, level, snake, food, win, state, name, difficulty, score):
         'state': state,
         'name': name,
         'difficulty': difficulty,
-        'score': score}
+        'score': score
+        }
 
 
 def show(game):
@@ -24,12 +25,10 @@ def show(game):
     food = getFood(game)
     level = getLevel(game)
     snake = getSnake(game)
-    score = getScore(game)
     win.erase()
     Level.show(level, win)
     Snake.show(snake, win)
     showFood(food, win)
-    showScore(score, win)
     return
 
 
@@ -37,7 +36,6 @@ def interact(game):
     snake = getSnake(game)
     food = getFood(game)
     win = getWin(game)
-    score = getScore(game)
     key = win.getch()
     difficulty = game['difficulty']
     win.timeout(200-30*difficulty)
@@ -49,11 +47,9 @@ def interact(game):
         logging.warning("you fail !")
         key = -1
         game = setSnake(Snake.reset(), game)
-        game = setScore(0, game)
         game = setState('menu', game)
 
     if foodEaten(snake, food):
-        game = setScore(score + 1, game)
         game = setNewFood(game)
     return
 
@@ -190,16 +186,3 @@ def askDifficulty(game):
             win.addstr(13, 20, "retry !")
     curses.noecho()
     return difficulty
-
-
-def getScore(game):
-    return game['score']
-
-
-def setScore(score, game):
-    game['score'] = score
-    return game
-
-
-def showScore(score, win):
-    win.addstr(22, 4, str(score))

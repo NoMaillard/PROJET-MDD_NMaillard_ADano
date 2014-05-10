@@ -1,8 +1,17 @@
 \textbullet Game.\textbf{create(menu, level, win, state, name, difficulty)}
+\textbullet Game.\textbf{show(game)}
+\textbullet Game.\textbf{interact(game)}
+\textbullet Game.\textbf{quitGame(status, game)}
 \textbullet Game.\textbf{getMenu(game)}
 \textbullet Game.\textbf{getLevel(game)}
 \textbullet Game.\textbf{setLevel(level, game)}
+\textbullet Game.\textbf{getSnake(game)}
+\textbullet Game.\textbf{setSnake(snake, game)}
+\textbullet Game.\textbf{showFood(food, win)}
+\textbullet Game.\textbf{getFood(game)}
+\textbullet Game.\textbf{foodEaten(snake, food)}
 \textbullet Game.\textbf{getState(game)}
+\textbullet Game.\textbf{setState(state, game)}
 \textbullet Game.\textbf{getWin(game)}
 \textbullet Game.\textbf{getName(game)}
 \textbullet Game.\textbf{setName(name, game)}
@@ -22,6 +31,28 @@ Game.\textbf{create(menu, level, win, state, name, difficulty)}->Game
                 name        : chaine de caractères
                 difficulty  : entier
         Valeurs de retour : nouvelle partie en fonction des parmetres
+
+
+Game.\textbf{show(game)}->rien
+        Description : Affiche la partie
+        Parametres :
+                game : Game
+        Valeurs de retour : aucune
+
+
+Game.\textbf{interact(game)}->rien
+        Description : Calcule les differentes variables du jeu.
+        Parametres :
+                game : Game
+        Valeurs de retour : aucune
+
+
+Game.\textbf{quitGame(status, game)}->rien
+        Description : Change l'état du jeu et donc quitte la partie en cours
+        Parametres :
+                status : String
+                game : Game
+        Valeurs de retour : aucune
 
 
 Game.\textbf{getMenu(game)}->menu
@@ -46,11 +77,64 @@ Game.\textbf{setLevel(level, game)}->Game
         Valeurs de retour : game
 
 
+Game.\textbf{getSnake(game)}->Snake
+        Description : retourne le snake stocke dans le game
+        Parametres :
+                game : Game
+        Valeurs de retour : Snake
+
+
+Game.\textbf{setSnake()}->Game
+        Description : Change la variable snake stockée dans le game
+        Parametres :
+                snake : Snake
+                game : Game
+        Valeurs de retour : variable game modifiée
+
+
+Game.\textbf{showFood()}->rien
+        Description : affiche le food
+        Parametres :
+                food : liste
+                win : fenetre curses
+        Valeurs de retour : aucune
+
+
+Game.\textbf{getFood()}->liste
+        Description : retourne le food stcke dans le game
+        Parametres :
+                game : Game
+        Valeurs de retour : liste des coordonnées du food
+
+
+Game.\textbf{setNewFood()}->game
+        Description : change les coordonees du food aléatoirement
+        Parametres :
+                game : Game
+        Valeurs de retour : variable game modifiée
+
+
+Game.\textbf{foodEaten()}->booléen
+        Description : détermine si le snake a ramassé un jeton
+        Parametres :
+                snake : Snake
+                food : liste
+        Valeurs de retour : booléen
+
+
 Game.\textbf{getState()}->chaine de caractère
         Description : retourne l'etat du jeu
         Parametres :
                 game : Game
         Valeurs de retour : variable state contenue dans la variable game
+
+
+Game.\textbf{setState()}->game
+        Description : change l'etat du jeu
+        Parametres :
+                state : String
+                game : Game
+        Valeurs de retour : variable game modifiee
 
 
 Game.\textbf{getWin(game)}->Window

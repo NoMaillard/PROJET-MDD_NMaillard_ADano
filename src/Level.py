@@ -22,12 +22,12 @@ def create(levelNumber, levelFile):
     # test existance du niveau demande
     if levelNumber <= len(level['allLevels']):
         # separation en lignes du niveau demande
-        level['level'] = list(level['allLevels'][levelNumber].split("\n"))
+        level['map'] = list(level['allLevels'][levelNumber].split("\n"))
     return level
 
 
-def getLevel(level):
-    return level['level']
+def getMap(level):
+    return level['map']
 
 
 def getLevelNumber(level):
@@ -70,7 +70,7 @@ def getNumberOfLevels(level):
 
 def show(level, win):
     win.erase()
-    currentLevel = getLevel(level)
+    currentLevel = getMap(level)
     for i in range(len(currentLevel)):
         win.addstr(i, 0, currentLevel[i])
     return
