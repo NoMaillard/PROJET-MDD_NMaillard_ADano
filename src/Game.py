@@ -96,13 +96,18 @@ def getFood(game):
 def setNewFood(game):
     level = getLevel(game)
     win = getWin(game)
-    logging.info('food : ' + str(game['food']))
+    logging.info('new food : ' + str(game['food']))
     newFoodX = random.randint(1, Level.getWidth(level))
     newFoodY = random.randint(1, Level.getHeight(level))
-    while win.inch(newFoodY, newFoodY) != ord(' '):
+    logging.info('char : ' + str(win.inch(newFoodY, newFoodX)))
+    pos = win.inch(newFoodY, newFoodX)
+    while pos != 32:
         logging.warning('food not allowed in tha place')
         newFoodX = random.randint(1, Level.getWidth(level))
         newFoodY = random.randint(1, Level.getHeight(level))
+        logging.info('char : ' + str(win.inch(newFoodY, newFoodX)))
+        pos = win.inch(newFoodY, newFoodX)
+
     game['food'] = [newFoodX, newFoodY]
     logging.info('new food coords : ' + str([newFoodX, newFoodY]))
     return game
