@@ -38,19 +38,20 @@ def interact(game):
     win = getWin(game)
     key = win.getch()
     difficulty = game['difficulty']
-    win.timeout(200-30*difficulty)
+    win.timeout(200-30*difficulty)  # a ameliorer
     try:
-        logging.info(str(key))
+        # logging.info(str(key))
         newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
     except ValueError:
         logging.warning("you fail !")
-        key = -1
+        game = resetScore(game)
         game = setSnake(Snake.reset(), game)
         game = setState('menu', game)
 
     if foodEaten(snake, food):
         game = setNewFood(game)
+        game = addScore(1, game)
     return
 
 
@@ -186,3 +187,13 @@ def askDifficulty(game):
             win.addstr(13, 20, "retry !")
     curses.noecho()
     return difficulty
+
+
+def addScore(value, game):
+    game['score'] += 1
+    return game
+
+
+def resetScore(game):
+    game['score'] = 0
+    return game
