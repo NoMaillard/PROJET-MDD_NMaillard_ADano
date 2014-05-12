@@ -39,3 +39,10 @@
 
 
 *.pyc
+Spazz-P1.tgz
+Spazz-P1/src/Game.py
+Spazz-P1/src/Level.py
+Spazz-P1/src/levels.txt
+Spazz-P1/src/main.py
+Spazz-P1/src/Menu.py
+Spazz-P1/src/Snake.py
