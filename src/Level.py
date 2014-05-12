@@ -22,7 +22,7 @@ def create(levelNumber, levelFile):
     # test existance du niveau demande
     if levelNumber <= len(level['allLevels']):
         # separation en lignes du niveau demande
-        level['map'] = list(level['allLevels'][levelNumber].split("\n"))
+        level['map'] = list(level['allLevels'][levelNumber-1].split("\n"))
     return level
 
 

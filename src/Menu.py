@@ -59,7 +59,7 @@ def interact(game):
         game = Game.setDifficulty(Game.askDifficulty(game), game)
     if menu['selectedItem'] == 2:
         newLevel = Level.create(Level.askLevelNumber(game), 'levels.txt')
-        logging.info(str(newLevel))
+        logging.info("nouveau niveau : " + str(newLevel))
         game = Game.setLevel(newLevel, game)
     if menu['selectedItem'] == 3:
         Game.setState('game', game)
