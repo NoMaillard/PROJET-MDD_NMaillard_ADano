@@ -16,7 +16,8 @@ def create(menu, level, snake, food, win, state, name, difficulty, score):
         'state': state,
         'name': name,
         'difficulty': difficulty,
-        'score': score}
+        'score': score
+        }
 
 
 def show(game):
@@ -24,12 +25,10 @@ def show(game):
     food = getFood(game)
     level = getLevel(game)
     snake = getSnake(game)
-    score = getScore(game)
     win.erase()
     Level.show(level, win)
     Snake.show(snake, win)
     showFood(food, win)
-    showScore(score, win)
     return
 
 
@@ -37,24 +36,22 @@ def interact(game):
     snake = getSnake(game)
     food = getFood(game)
     win = getWin(game)
-    score = getScore(game)
     key = win.getch()
     difficulty = game['difficulty']
-    win.timeout(200-30*difficulty)
+    win.timeout(200-30*difficulty)  # a ameliorer
     try:
-        logging.info(str(key))
+        # logging.info(str(key))
         newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
     except ValueError:
         logging.warning("you fail !")
-        key = -1
+        game = resetScore(game)
         game = setSnake(Snake.reset(), game)
-        game = setScore(0, game)
         game = setState('menu', game)
 
     if foodEaten(snake, food):
-        game = setScore(score + 1, game)
         game = setNewFood(game)
+        game = addScore(1, game)
     return
 
 
@@ -99,13 +96,18 @@ def getFood(game):
 def setNewFood(game):
     level = getLevel(game)
     win = getWin(game)
-    logging.info('food : ' + str(game['food']))
+    logging.info('new food : ' + str(game['food']))
     newFoodX = random.randint(1, Level.getWidth(level))
     newFoodY = random.randint(1, Level.getHeight(level))
-    while win.inch(newFoodY, newFoodY) != ord(' '):
+    logging.info('char : ' + str(win.inch(newFoodY, newFoodX)))
+    pos = win.inch(newFoodY, newFoodX)
+    while pos != 32:
         logging.warning('food not allowed in tha place')
         newFoodX = random.randint(1, Level.getWidth(level))
         newFoodY = random.randint(1, Level.getHeight(level))
+        logging.info('char : ' + str(win.inch(newFoodY, newFoodX)))
+        pos = win.inch(newFoodY, newFoodX)
+
     game['food'] = [newFoodX, newFoodY]
     logging.info('new food coords : ' + str([newFoodX, newFoodY]))
     return game
@@ -192,14 +194,11 @@ def askDifficulty(game):
     return difficulty
 
 
-def getScore(game):
-    return game['score']
-
-
-def setScore(score, game):
-    game['score'] = score
+def addScore(value, game):
+    game['score'] += 1
     return game
 
 
-def showScore(score, win):
-    win.addstr(22, 4, str(score))
+def resetScore(game):
+    game['score'] = 0
+    return game

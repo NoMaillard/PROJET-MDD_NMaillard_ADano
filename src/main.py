@@ -7,19 +7,18 @@ import Level
 import Menu
 import Snake
 
- l
+
 def init():
-    global game
     # on initialise la fenetre curses
     curses.initscr()
     win = curses.newwin(30, 80, 0, 0)
     curses.noecho()
     curses.curs_set(0)
-    win.nodelay(0)
+    win.nodelay(1)
 
     logging.basicConfig(filename='snake.log', level=logging.INFO)
     # creation du niveau
-    level = Level.create(0, 'levels.txt')
+    level = Level.create(1, 'levels.txt')
     # creation du snake
     snake = Snake.create(35, 15, 1, 2)
 
@@ -48,6 +47,8 @@ def init():
     # creation de la variable de type game
     game = Game.create(
         menu, level, snake, food, win, state, name, difficulty, score)
+
+    return game
 
 
 def run(game):
@@ -82,5 +83,5 @@ def quitProgram():
     return
 
 #
-init()
+game = init()
 run(game)

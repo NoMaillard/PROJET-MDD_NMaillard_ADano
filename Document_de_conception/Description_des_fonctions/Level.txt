@@ -1,8 +1,10 @@
 \textbullet Level.\textbf{create(levelNumber, levelFile)}
+\textbullet Level.\textbf{getMap(level)}
 \textbullet Level.\textbf{getLevelNumber(level)}
 \textbullet Level.\textbf{setLevelNumber(levelNumber, level)}
 \textbullet Level.\textbf{askLevelNumber(game)}
 \textbullet Level.\textbf{getNumberOfLevels(level)}
+\textbullet Level.\textbf{show(level, win)}
 
 
 Level.\textbf{create(levelNumber, levelFile)}->Level
@@ -13,14 +15,20 @@ Level.\textbf{create(levelNumber, levelFile)}->Level
         Valeurs de retour : variable de type Level
 
 
-Level.\textbf{getLevelNumber()}->entier
+Level.\textbf{getMap(level)}->liste de liste de caractere
+        Description : retourne la carte du niveau contenue dans la variable level
+        Parametres : level : Level
+        Valeurs de retour : carte
+
+
+Level.\textbf{getLevelNumber(level)}->entier
         Description : retourne le numero du niveau
         Parametres :
-                alevel : Level
+                level : Level
         Valeurs de retour : variable levelNumber contenue dans level
 
 
-Level.\textbf{setLevelNumber()}->Level
+Level.\textbf{setLevelNumber(number, level)}->Level
         Description : change le numéro du niveau de la variable level
         Parametres :
                 levelNumber : entier
@@ -28,15 +36,23 @@ Level.\textbf{setLevelNumber()}->Level
         Valeurs de retour : level
 
 
-Level.\textbf{askLevelNumber()}->entier
+Level.\textbf{askLevelNumber(game)}->entier
         Description : demande le numéro du niveau à l'utilisateur
         Parametres :
                 game : Game
         Valeurs de retour : numero du niveau demandé par l'utilisateur
 
 
-Level.\textbf{getNumberOfLevels()}->entier
+Level.\textbf{getNumberOfLevels(level)}->entier
         Description : retourne le nombre total de niveaux
         Parametres :
                 level : Level
         Valeurs de retour : nombre de niveaux dans la variable level
+
+
+Level.\textbf{show(level, win)}->rien
+        Description : affiche la carte du niveau en cours
+        Parametres :
+                level : Level
+                win : fenetre curses
+        Valeurs de retour : rien
