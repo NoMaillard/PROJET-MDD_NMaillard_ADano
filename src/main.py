@@ -28,10 +28,10 @@ def init():
     # creation du menu
     menu = Menu.create(
         'Change name',
-        'Change Difficulty',
+        'Change difficulty',
         'Select level',
-        'play',
-        'quit Game'
+        'Play',
+        'Quit game'
     )
 
     # definition de l'etat du programme
