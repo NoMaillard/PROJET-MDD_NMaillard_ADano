@@ -4,6 +4,7 @@ import logging
 
 import Level
 import Snake
+import HighScores
 
 
 def create(menu, level, snake, food, win, state, name, difficulty, score):
@@ -25,10 +26,12 @@ def show(game):
     food = getFood(game)
     level = getLevel(game)
     snake = getSnake(game)
+    score = getScore(game)
     win.erase()
     Level.show(level, win)
     Snake.show(snake, win)
     showFood(food, win)
+    showScore(score, win)
     return
 
 
@@ -36,15 +39,19 @@ def interact(game):
     snake = getSnake(game)
     food = getFood(game)
     win = getWin(game)
+    score = getScore(game)
+    name = getName(game)
     key = win.getch()
     difficulty = game['difficulty']
     win.timeout(200-30*difficulty)  # a ameliorer
+    if key == 32:
+        pause(win)
     try:
-        # logging.info(str(key))
         newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
     except ValueError:
-        logging.warning("you fail !")
+        HighScore = HighScores.write(score, name)
+        logging.info(str(HighScore))
         game = resetScore(game)
         game = setSnake(Snake.reset(), game)
         game = setState('menu', game)
@@ -194,6 +201,14 @@ def askDifficulty(game):
     return difficulty
 
 
+def getScore(game):
+    return game['score']
+
+
+def showScore(score, win):
+    win.addstr(23, 20, 'Score : ' + str(score))
+
+
 def addScore(value, game):
     game['score'] += 1
     return game
@@ -202,3 +217,14 @@ def addScore(value, game):
 def resetScore(game):
     game['score'] = 0
     return game
+
+
+def pause(win):
+    win.addstr(11, 22, "Paused, hit space to resume")
+    win.nodelay(0)
+    key = win.getch()
+    while key != 32:
+        key = win.getch()
+    win.erase()
+    win.nodelay(1)
+    return
