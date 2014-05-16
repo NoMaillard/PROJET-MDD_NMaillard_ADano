@@ -3,6 +3,7 @@ import logging
 
 import Game
 import Level
+import HighScores
 
 
 def create(*argv):
@@ -62,8 +63,10 @@ def interact(game):
         logging.info("nouveau niveau : " + str(newLevel))
         game = Game.setLevel(newLevel, game)
     if menu['selectedItem'] == 3:
-        Game.setState('game', game)
+        HighScores.show(HighScores.get(), win)
     if menu['selectedItem'] == 4:
+        Game.setState('game', game)
+    if menu['selectedItem'] == 5:
         Game.setState('quitProgram', game)
     return
 

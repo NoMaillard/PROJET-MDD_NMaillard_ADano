@@ -7,7 +7,7 @@ import Snake
 import HighScores
 
 
-def create(menu, level, snake, food, win, state, name, difficulty, score):
+def create(menu, level, snake, food, win, state, name, difficulty, score, HighScores):
     return {
         'menu': menu,
         'level': level,
@@ -17,8 +17,9 @@ def create(menu, level, snake, food, win, state, name, difficulty, score):
         'state': state,
         'name': name,
         'difficulty': difficulty,
-        'score': score
-        }
+        'score': score,
+        'HighScores': HighScores
+    }
 
 
 def show(game):
@@ -43,15 +44,14 @@ def interact(game):
     name = getName(game)
     key = win.getch()
     difficulty = game['difficulty']
-    win.timeout(200-30*difficulty)  # a ameliorer
+    win.timeout(200 - 30 * difficulty)  # a ameliorer
     if key == 32:
         pause(win)
     try:
         newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
     except ValueError:
-        HighScore = HighScores.write(score, name)
-        logging.info(str(HighScore))
+        game = setHighScores(HighScores.log(score, name), game)
         game = resetScore(game)
         game = setSnake(Snake.reset(), game)
         game = setState('menu', game)
@@ -228,3 +228,12 @@ def pause(win):
     win.erase()
     win.nodelay(1)
     return
+
+
+def getHighScores(game):
+    return game['HighScores']
+
+
+def setHighScores(HighScores, game):
+    game['HighScores'] = HighScores
+    return game

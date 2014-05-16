@@ -2,10 +2,12 @@
 import curses
 import logging
 
+
 import Game
 import Level
 import Menu
 import Snake
+import HighScores
 
 
 def init():
@@ -30,6 +32,7 @@ def init():
         'Change name',
         'Change difficulty',
         'Select level',
+        'Show HighScores',
         'Play',
         'Quit game'
     )
@@ -44,9 +47,21 @@ def init():
     difficulty = 2
 
     score = 0
+
+    HighScoreTable = HighScores.get()
     # creation de la variable de type game
     game = Game.create(
-        menu, level, snake, food, win, state, name, difficulty, score)
+        menu,
+        level,
+        snake,
+        food,
+        win,
+        state,
+        name,
+        difficulty,
+        score,
+        HighScoreTable
+        )
 
     return game
 
