@@ -70,7 +70,6 @@ def getNumberOfLevels(level):
 
 
 def show(level, win):
-    win.erase()
     currentLevel = getMap(level)
     for i in range(len(currentLevel)):
         win.addstr(i, 0, currentLevel[i])

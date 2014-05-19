@@ -1,4 +1,4 @@
-import logging
+# import logging
 
 
 def create(headXPos, headYPos, headFacing, length):

@@ -2,13 +2,8 @@ import pickle
 
 
 def log(score, name):
-
-    try:
-        with open("highScores.dat", "rb") as f:
-            highScores = pickle.load(f)
-    except EOFError:
-        highScores = []
-
+    with open("highScores.dat", "rb") as f:
+        highScores = pickle.load(f)
     entry = (score, name)
     highScores.append(entry)
     highScores.sort(reverse=True)
