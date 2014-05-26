@@ -26,7 +26,7 @@ def init():
     snake = Snake.create(35, 15, 1, 2)
 
     # creation du food
-    food = [10, 10]
+    food = None
 
     # creation du menu
     menu = Menu.create(
@@ -35,7 +35,8 @@ def init():
         'Select level',
         'Show HighScores',
         'Play',
-        'Quit game'
+        'Quit game',
+        'Edit levels'
     )
 
     # definition de l'etat du programme
@@ -71,7 +72,6 @@ def run(game):
     while Game.getState(game) != 'quitProgram':
         show(game)
         interact(game)
-    quitProgram()
     return
 
 
@@ -88,6 +88,10 @@ def interact(game):
         Menu.interact(game)
     elif Game.getState(game) == 'game':
         Game.interact(game)
+    elif Game.getState(game) == 'editor':
+        editor.start()
+        Game.setState('menu', game)
+        Game.setLevel(Level.create(1, 'levels.txt'), game)
     elif Game.getState(game) == 'quitGame':
         Game.quitGame(game)
     return
@@ -98,6 +102,11 @@ def quitProgram():
     curses.endwin()
     return
 
-#
-game = init()
-run(game)
+
+def main():
+    game = init()
+    run(game)
+    quitProgram()
+
+if __name__ == '__main__':
+    main()

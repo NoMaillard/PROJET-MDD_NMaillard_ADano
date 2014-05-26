@@ -49,9 +49,9 @@
 Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 
 
-{\today}\\[3cm] % Date, change the \today to a set date if you want to be precise
+{\large \today}\\[3cm] % Date, change the \today to a set date if you want to be precise
 
-{\large Version 1.0}
+{\large Version 1.1}
 
 
 \vfill
@@ -74,18 +74,19 @@ Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 \subsection{Fonctionalités}
 
 \begin{enumerate}[label*= F\arabic*,font = \textbf]
-    \item : Choisir un pseudo
-    \item : Choisir la difficulté
-    \item : Choisir le niveau
-    \item : Jouer un niveau
-    \begin{enumerate}[label*=.\arabic*,font = \textbf]
-        \item : Afficher le Jeu
-        \item : Changer de direction
-        \item : Ramasser un jeton
-        \item : Finir le niveau
-    \end{enumerate}
-    \item : Afficher les meilleurs scores
-    \item : Quitter le jeu
+	\item : Choisir un pseudo
+	\item : Choisir la difficulté
+	\item : Choisir le niveau
+	\item : Jouer un niveau
+	\begin{enumerate}[label*=.\arabic*,font = \textbf]
+		\item : Afficher le Jeu
+		\item : Changer de direction
+		\item : Ramasser un jeton
+		\item : Finir le niveau
+	\end{enumerate}
+	\item : Afficher les meilleurs scores
+	\item : Quitter le jeu
+    \item : Créer des niveaux
 \end{enumerate}
 
 \subsection{Prototype P1}
@@ -151,7 +152,7 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 \subsubsection{Arbre affichage}
 
 \begin{alltt}
-    \input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_affichage.txt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Analyse_descendante/Arbre_affichage.txt}
 \end{alltt}
 \subsubsection{Arbre interaction}
 
@@ -186,70 +187,17 @@ joueur, Spazz, pseudo, direction, niveau, score, taille, position
 	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Level.txt}
 \end{alltt}
 
-\section{Calendrier et suivi de développement}
-\subsection{Prototype 1}
-\subsubsection{fonctions à développer}
-\texttt{
-\begin{tabular}{|l|c|c|r|}
-\hline
-\textsc{\textbf{fonctions}} & codées & testées & commentaires \\
-\hline
-	Main.\textbf{init()} & Oui & Oui & 18/04 \\
-\hline
-	Main.\textbf{run()} & Oui & Oui & 18/04\\
-\hline
-	Main.\textbf{show()} & Oui & Oui & 18/04 \\
-\hline
-	Main.\textbf{interact()} & Oui & Oui & 18/04\\
-\hline
-    Main.\textbf{quit()} & Oui & Non & 18/04\\
-\hline
-    Game.\textbf{create()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getMenu()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getLevel()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{setLevel()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getState()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getWin()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getName()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{setName()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{askName()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{getDifficulty()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{setDifficulty()} & Oui & Oui & 18/04\\
-\hline
-    Game.\textbf{askDifficulty()} & Oui & Oui & 18/04\\
-\hline
-    Menu.\textbf{create()} & Oui & Oui & 18/04\\
-\hline
-    Menu.\textbf{show()} & Oui & Oui & 18/04\\
-\hline
-    Menu.\textbf{interact()} & Oui & Oui & 18/04\\
-\hline
-    Menu.\textbf{getNumberOfMenuItems()} & Oui & Oui & 18/04\\
-\hline
-    Menu.\textbf{quit()} & Oui & Non & 18/04\\
-\hline
-    Level.\textbf{create()} & Oui & Oui & 18/04\\
-\hline
-    Level.\textbf{getLevelNumber()} & Oui & Oui & 18/04\\
-\hline
-    Level.\textbf{setLevelNumber()} & Oui & Oui & 18/04\\
-\hline
-    Level.\textbf{askLevelNumber()} & Oui & Oui & 18/04\\
-\hline
-    Level.\textbf{getNumberOfLevels()} & Oui & Oui & 18/04\\
-\hline
-\end{tabular}
-}
-\subsubsection{autres}
-\texttt{levels.txt}
+\subsection{Module Snake.py}
+\begin{alltt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Snake.txt}
+\end{alltt}
+
+\subsection{Module HighScores.py}
+\begin{alltt}
+	\input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/HighScores.txt}
+\end{alltt}
+\subsection{Module Editor.py}
+\begin{alltt}
+        \input{/Users/Noe/Documents/Cours/S2/MDD/Document_de_conception/Description_des_fonctions/Editor.txt}
+\end{alltt}
 \end{document}

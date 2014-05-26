@@ -50,12 +50,12 @@ def askLevelNumber(game):
     curses.echo()
     levelNumber = 0
     while levelNumber < 1 or levelNumber > len(level['allLevels']):
-        max = str(len(level['allLevels']))
+        max = str(len(level['allLevels'])-1)
         win.addstr(10, 20, "Choose your level [ 1 - " + max + " ]")
         win.addstr(12, 20, "            ")
         try:
             levelNumber = int(win.getstr(11, 20))
-            if levelNumber < 1 or levelNumber > len(level['allLevels']):
+            if levelNumber < 1 or levelNumber > len(level['allLevels'])-1:
                 raise ValueError()
         except ValueError:
             win.erase()

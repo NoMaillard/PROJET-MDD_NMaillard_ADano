@@ -1,0 +1,68 @@
+\textbullet Editor.\textbf{init()}
+\textbullet Editor.\textbf{loadNew()}
+\textbullet Editor.\textbf{showLevel(win, level)}
+\textbullet Editor.\textbf{action(win, level, key, trace)}
+\textbullet Editor.\textbf{changeAllTiles(win, level)}
+\textbullet Editor.\textbf{saveLevel(level)}
+\textbullet Editor.\textbf{quit(win)}
+\textbullet Editor.\textbf{start()}
+
+Editor.\textbf{init()}->fenetre curses
+        Description : Initialise une nouvelle fenetre curses pour l'editeur de jeu
+        Parametres :
+                aucun
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{loadNew()}->liste de liste de caracteres
+        Description : cree un niveau avec un cadre
+        Parametres :
+                aucun
+        Valeurs de retour : level
+
+
+Editor.\textbf{showLevel(win, level)}->rien
+        Description : Affiche le niveau que l'on edite
+        Parametres :
+                win : fenetre curses
+                level : liste de liste de caracteres
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{action(win, level, key, trace)}->rien
+        Description : deplace le curseur et change le caractetre a l'endroit ou le curseur se deplace si trace est vrai, sinon il deplace simplement le curseur.
+        Parametres :
+                win : fenetre curses
+                level : liste de liste de caracteres
+                key : entier
+                trace : booleen
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{changeAllTiles(win, level)}->rien
+        Description : met a jour les caracteres du niveau
+        Parametres :
+                win : fenetre curses
+                level : liste de liste de caracteres
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{saveLevel(level)}->rien
+        Description : sauvegarde le niveau a la suite des autres niveaux dans le fichier levels.txt
+        Parametres :
+                level : liste de liste de caracteres
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{quit(win)}->rien
+        Description : quitte l'éditeur
+        Parametres :
+                win : fenetre curses
+        Valeurs de retour : aucune
+
+
+Editor.\textbf{start()}->rien
+        Description : Lance l'editeru de jeu
+        Parametres :
+                aucun
+        Valeurs de retour : aucune

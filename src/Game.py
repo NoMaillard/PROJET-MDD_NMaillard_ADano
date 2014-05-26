@@ -7,7 +7,7 @@ import Snake
 import HighScores
 
 
-def create(menu, level, snake, food, win, state, name, difficulty, score, HighScores):
+def create(menu, level, snake, food, win, state, name, difficulty, score, HighScoreTable):
     return {
         'menu': menu,
         'level': level,
@@ -18,7 +18,7 @@ def create(menu, level, snake, food, win, state, name, difficulty, score, HighSc
         'name': name,
         'difficulty': difficulty,
         'score': score,
-        'HighScores': HighScores
+        'HighScores': HighScoreTable
     }
 
 
@@ -51,10 +51,11 @@ def interact(game):
         newSnake = Snake.computeNextPos(key, snake, food, win)
         game = setSnake(newSnake, game)
     except ValueError:
-        game = setHighScores(HighScores.log(score, name), game)
+        game = setHighScores(HighScores.log(score, name, difficulty), game)
         game = resetScore(game)
         game = setSnake(Snake.reset(), game)
         game = setState('menu', game)
+        food = None
 
     if foodEaten(snake, food):
         game = setNewFood(game)
@@ -93,7 +94,8 @@ def setSnake(snake, game):
 
 
 def showFood(food, win):
-    win.addstr(food[1], food[0], 'X')
+    if food is not None:
+        win.addstr(food[1], food[0], 'X')
 
 
 def getFood(game):
@@ -121,6 +123,8 @@ def setNewFood(game):
 
 
 def foodEaten(snake, food):
+    if food is None:
+        return True
     if food[0] == Snake.getHeadX(snake) and food[1] == Snake.getHeadY(snake):
         logging.info('some food has been eaten')
         return True
@@ -163,7 +167,11 @@ def askName(game):
     win.erase()
     curses.echo()
     win.addstr(10, 20, "What's your name ?")
-    name = win.getstr(11, 20)
+    try:
+        name = win.getstr(11, 20)
+    except ValueError:
+        win.erase()
+        win.addstr(13, 20, "retry !")
     curses.noecho()
     return name
 

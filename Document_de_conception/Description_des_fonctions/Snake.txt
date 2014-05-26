@@ -1,0 +1,45 @@
+\textbullet Snake.\textbf{create(headXPos, headYPos, headFacing, length)}
+\textbullet Snake.\textbf{show(snake, win)}
+\textbullet Snake.\textbf{computeNextPos(key, snake, win)}
+\textbullet Snake.\textbf{getHeadX(snake)}
+\textbullet Snake.\textbf{getHeadY(snake)}
+\textbullet Snake.\textbf{reset()}
+
+Snake.\textbf{create(headXPos, headYPos, headFacing, length)}->Snake
+        Description : crée la variable snake
+        Parametres :
+                headPosX : entier
+                headPosY : entier
+        Valeurs de retour : variable Snake
+
+
+Snake.\textbf{show(snake, win)}->rien
+        Description : Affiche le snake dans la fenètre
+        Parametres :
+                snake : Snake
+                win : fenetre curses
+        Valeurs de retour : aucune
+
+
+Snake.\textbf{computeNextPos(key, snake, win)}->snake
+        Description : calcule la prochaine position du snake
+        Parametres :
+                key : entier
+                snake : Snake
+                food : liste d'entiers
+                win : fenetre curses
+        Valeurs de retour : la variable snake modifiée
+
+
+Snake.\textbf{getHeadX()}->entier
+        Description : retoune la position en X de la tete du snake
+        Parametres :
+                snake : Snake
+        Valeurs de retour : position en x de la tete
+
+
+Snake.\textbf{reset()}->Snake
+        Description : remet la variable snake a son etat au debut du jeu
+        Parametres :
+                snake : Snake
+        Valeurs de retour : nouveau snake

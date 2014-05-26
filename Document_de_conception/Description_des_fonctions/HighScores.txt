@@ -1,0 +1,26 @@
+\textbullet HighScores.\textbf{log(score, name, difficulty)}
+\textbullet HighScores.\textbf{get()}
+\textbullet HighScores.\textbf{show(highScores, win)}
+
+HighScores.\textbf{log(score, name, difficulty)}->highScores
+        Description : sauvegarde les meilleurs scores
+        Parametres :
+                score : entier
+                name : chaine de caracteres
+                difficulty : entier
+        Valeurs de retour : nouveaux highScores
+
+
+HighScores.\textbf{get()}->highScores
+        Description : charge les highScores contenus dans les fichiers .dat
+        Parametres :
+                aucun
+        Valeurs de retour : highScores
+
+
+HighScores.\textbf{show(highScores, win)}->rien
+        Description : affiche les meilleurs scores
+        Parametres :
+                highScores : highScores
+                win : fenetre cureses
+        Valeurs de retour : aucune

@@ -36,7 +36,7 @@
     		text centered,
     		drop shadow
     		},
-    }
+}
 
 
 \begin{document}
@@ -67,9 +67,9 @@
 Noé \textsc{Maillard} et Allan \textsc{Dano}\\[3cm]
 
 
-{\large 27 mars 2014}\\[3cm]
+{\large \today}\\[3cm]
 
-{\large Version 1.0}
+{\large Version 1.1}
 
 
 \vfill
@@ -89,24 +89,25 @@ Dans le cadre du cours de MDD, nous avons eu l'idée de créer un jeu vidéo mé
 
 \subsection{Règles du jeu}
 \begin{itemize}[label = $\bullet$]
-	\item l'utilisateur déplace une entité nommée Spazz qui doit se rendre à la fin du niveau avant la fin du temps imparti
-	\item Avant de pouvoir terminer un niveau, Spazz doit ramasser un nombre prédéfini de jetons
-	\item Les jetons peuvent prendre différentes valeurs
+	\item l'utilisateur déplace une entité nommée Spazz qui doit se déplacer dans le niveau en ramassant des jetons
 	\item À chaque fois que Spazz ramasse un jeton, il grandit en taille
-	\item À la fin d'un niveau, le nombre de points est la somme du temps restant au compteur et des points des jetons ramassés
+	\item À la fin d'un niveau, le nombre de points est le nombre de jetons ramassés par Spazz.
+    \item le niveau est terminé lorsque Spazz se cogne contre un mur ou lui-même.
 \end{itemize}
 
-Le but du jeu est de terminer tous les niveaux.
+Le but du jeu est de manger le plus de jetons dans un niveau
 
 \subsection{L'interface}
 
 \subsubsection{Visuel}
 Dans le niveau, l'utilisateur voit les différents items du menu principal et une flèche qui indique quel item est sélectionné.
 Pendant une partie l'utilisateur voit le niveau en cours avec Spazz qui se déplace en fonction des touches appuyées, en dessous il y a une banderole qui affiche le score total, le temps restant et les nombre de jetons restants.
+Dans l'éditeur de niveaux, l'utilisateur voit le niveau, le curseur et deux nombres indiquant la position de son curseur et le mode dans le quel il se trouve.
 
 \subsubsection{Interaction}
 Dans le menu, lorsqu'il y a plusieurs items, l'utilisateur navigue à l'aide des touches Z et S puis confirme par la touche E, lorsque l'utilisateur entre du texte, il confirme avec la touche entrée.
 Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S et D. Ces touches changent la direction dans laquelle Spazz se dirige.
+Dans l'éditeur de niveaux, l'utilisateur déplace le curseur à l'aide des touche Z, Q, S et D. en appuyant sur la barre d'espace il change le mode du curseur.
 
 
 \subsection{Manuel Utilisateur}
@@ -119,6 +120,7 @@ Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S
     \item [Jouer le niveau : ] dans le menu, sélectionner l'item "play".
     \item [Quitter le Jeu : ] dans le menu, sélectionner l'item "quit game".
     \item [Diriger le Spazz : ] dans le jeu, appuyer sur les touches Z, Q, S, ou D pour changer la direction dans laquelle le Spazz se dirige
+    \item [Créer un niveau : ] dans l'éditeur de niveau, appuyer sur les touches Z, Q, S ou D pour déplacer le curseur, appuyer sur la barre d'espace pour commencer a placer des murs ou effacer des murs déjà placés et ré-appuyer sur la barre d'espace pour seulement déplacer le curseur. Appuyer sur la touche entrée pour sauvegarder le niveau et revenir au menu.
 \end{description}
 
 \subsection{Contraintes techniques}
@@ -163,6 +165,7 @@ Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S
 	 \node[scenario,
 		left of=Lancer,
 		node distance=3.5cm,
+        yshift = 1cm
 		]
 		(Niveau)
 		{
@@ -186,11 +189,21 @@ Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S
         {
             Quitter le Jeu
         };
+    \node[action,
+        node distance = 3.5cm,
+        left of = Lancer,
+        yshift = -1cm
+        ]
+        (Edit)
+        {
+            Créer un Niveau
+        };
 
 	 \path 	(Lancer)	edge[bend left = 10] (Pseudo)
 	 		(Lancer)	edge[bend left = 10] (Difficulty)
 	 		(Lancer)	edge[bend right] (Niveau)
             (Lancer)    edge[bend left] (Choose)
+            (Lancer)    edge[bend right] (Edit)
             (Lancer)    edge[bend left] (Quit);
 \end{tikzpicture}
 
@@ -285,6 +298,7 @@ Pendant une partie, l'utilisateur agit sur le Spazz l'aide des touches Z , Q , S
     \end{enumerate}
 	\item : Afficher les meilleurs scores
 	\item : Quitter le jeu
+    \item : Créer des Niveaux
 \end{enumerate}
 \section{Critères de validité et de qualité}
 
@@ -325,7 +339,6 @@ Avant la Dernière UC: Version Finale
 	\item [Prototype P1] 	Ce prototype porte sur la création et l'affichage d'un niveau.\\
 							Mise en œuvre de fonctionnalités : F1, F2, F3.2, F3.2\\
 							Fichier : \texttt{Spazz-P1.tgz}
-	\item [Prototype P2]
 	\item [Version finale] Ficher : \texttt{Spazz-v1.0.tgz}
 \end{description}
 
