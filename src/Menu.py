@@ -63,11 +63,13 @@ def interact(game):
         logging.info("nouveau niveau : " + str(newLevel))
         game = Game.setLevel(newLevel, game)
     if menu['selectedItem'] == 3:
-        HighScores.show(Game.getHighScores(game), win)
+        HighScores.show(HighScores.get(), win)
     if menu['selectedItem'] == 4:
         Game.setState('game', game)
     if menu['selectedItem'] == 5:
         Game.setState('quitProgram', game)
+    if menu['selectedItem'] == 6:
+        Game.setState('editor', game)
     return
 
 

@@ -8,6 +8,7 @@ import Level
 import Menu
 import Snake
 import HighScores
+import editor
 
 
 def init():
