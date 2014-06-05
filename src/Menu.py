@@ -1,5 +1,6 @@
 #!/usr/bin/python
 import logging
+import curses
 
 import Game
 import Level
@@ -23,14 +24,16 @@ def create(*argv):
 
 def show(game):
     # affiche le menu
+    level = Game.getLevel(game)
     menu = Game.getMenu(game)
     win = Game.getWin(game)
     win.erase()
+    Level.show(level, win)
     for i in range(len(menu['items'])):
         if i == menu['cursor']:
-            win.addstr(10 + i, 20, "->" + str(menu['items'][i]))
+            win.addstr(10 + i, 20, "->" + str(menu['items'][i]), curses.color_pair(1))
         else:
-            win.addstr(10 + i, 22, str(menu['items'][i]))
+            win.addstr(10 + i, 22, str(menu['items'][i]), curses.color_pair(2))
     win.addstr(2, 2, 'Name : ' + str(Game.getName(game)))
     win.addstr(3, 2, 'Difficulty : ' + str(Game.getDifficulty(game)))
     win.addstr(4, 2, 'Level : ' +
@@ -51,7 +54,7 @@ def interact(game):
     if key == ord('s'):
         if menu['cursor'] != len(menu['items']) - 1:
             menu['cursor'] += 1
-    if key == ord('e'):
+    if key == ord('\n'):
         menu['selectedItem'] = menu['cursor']
     # action a effectuer en fonction de l'item selectionne
     if menu['selectedItem'] == 0:
@@ -60,16 +63,15 @@ def interact(game):
         game = Game.setDifficulty(Game.askDifficulty(game), game)
     if menu['selectedItem'] == 2:
         newLevel = Level.create(Level.askLevelNumber(game), 'levels.txt')
-        logging.info("nouveau niveau : " + str(newLevel))
         game = Game.setLevel(newLevel, game)
     if menu['selectedItem'] == 3:
         HighScores.show(HighScores.get(), win)
     if menu['selectedItem'] == 4:
         Game.setState('game', game)
     if menu['selectedItem'] == 5:
-        Game.setState('quitProgram', game)
-    if menu['selectedItem'] == 6:
         Game.setState('editor', game)
+    if menu['selectedItem'] == 6:
+        Game.setState('quitProgram', game)
     return
 
 

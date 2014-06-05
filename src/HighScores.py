@@ -1,4 +1,5 @@
 import pickle
+import curses
 
 
 def log(score, name, difficuty):
@@ -50,14 +51,14 @@ def show(highScores, win):
         for i in range(len(table)):
             win.addstr(10+i, column, str(table[i][1]) + ' : ' + str(table[i][0]))
         column += 15
-    win.addstr(9, 10, 'Easy')
-    win.addstr(9, 25, 'Medium')
-    win.addstr(9, 40, 'Hard')
+    win.addstr(9, 10, 'Easy', curses.color_pair(1))
+    win.addstr(9, 25, 'Medium', curses.color_pair(2))
+    win.addstr(9, 40, 'Hard', curses.color_pair(3))
     win.addstr(5, 25, 'HIGHSCORES')
-    win.addstr(17, 24, 'Quit with E')
+    win.addstr(17, 24, 'Quit with ENTER')
     win.nodelay(0)
     key = win.getch()
-    while key != ord('e'):
+    while key != ord('\n'):
         key = win.getch()
     win.nodelay(1)
     return

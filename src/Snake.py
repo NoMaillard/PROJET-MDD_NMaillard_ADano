@@ -1,4 +1,5 @@
-# import logging
+import curses
+import logging
 
 
 def create(headXPos, headYPos, headFacing, length):
@@ -26,7 +27,7 @@ def create(headXPos, headYPos, headFacing, length):
 def show(snake, win):
     snakeBody = snake['snakeBody']
     for i in range(len(snakeBody)):
-        win.addstr(snakeBody[i][1], snakeBody[i][0], 'O')
+        win.addstr(snakeBody[i][1], snakeBody[i][0], 'O', curses.color_pair(1))
 
 
 def computeNextPos(key, snake, food, win):
@@ -56,6 +57,7 @@ def computeNextPos(key, snake, food, win):
 
     newHeadplace = win.inch(newHeadY, newHeadX)
     if newHeadplace != ord(' ') and newHeadplace != ord('X'):
+        logging.warning(str(newHeadplace))
         raise ValueError()
 
     snakeBody.insert(0, [newHeadX, newHeadY])

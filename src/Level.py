@@ -48,19 +48,20 @@ def askLevelNumber(game):
     win.nodelay(0)
     win.erase()
     curses.echo()
+    curses.curs_set(1)
     levelNumber = 0
-    while levelNumber < 1 or levelNumber > len(level['allLevels']):
-        max = str(len(level['allLevels'])-1)
+    while levelNumber < 1 or levelNumber > len(level['allLevels']) - 1:
+        max = str(getNumberOfLevels(level)-1)
         win.addstr(10, 20, "Choose your level [ 1 - " + max + " ]")
-        win.addstr(12, 20, "            ")
         try:
             levelNumber = int(win.getstr(11, 20))
-            if levelNumber < 1 or levelNumber > len(level['allLevels'])-1:
+            if levelNumber < 1 or levelNumber > len(level['allLevels']) - 1:
                 raise ValueError()
         except ValueError:
             win.erase()
             win.addstr(12, 20, "retry !")
     curses.noecho()
+    curses.curs_set(0)
     return levelNumber
 
 

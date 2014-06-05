@@ -116,7 +116,6 @@ def setNewFood(game):
         newFoodY = random.randint(1, Level.getHeight(level))
         logging.info('char : ' + str(win.inch(newFoodY, newFoodX)))
         pos = win.inch(newFoodY, newFoodX)
-
     game['food'] = [newFoodX, newFoodY]
     logging.info('new food coords : ' + str([newFoodX, newFoodY]))
     return game
@@ -171,7 +170,7 @@ def askName(game):
         name = win.getstr(11, 20)
     except ValueError:
         win.erase()
-        win.addstr(13, 20, "retry !")
+        win.addstr(12, 20, "retry !")
     curses.noecho()
     return name
 
@@ -214,7 +213,7 @@ def getScore(game):
 
 
 def showScore(score, win):
-    win.addstr(23, 20, 'Score : ' + str(score))
+    win.addstr(23, 20, 'Score : ' + str(score), curses.color_pair(2))
 
 
 def addScore(value, game):
